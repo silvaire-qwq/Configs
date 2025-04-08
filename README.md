@@ -24,7 +24,7 @@ How can I use this dotfiles manager?
 0. Install `git` and `bash`
 1. Clone this repository.
 2. Remove config, env, etc, and home folders.
-3. Edit manager.conf.
+3. Edit manager.conf or run `manager --config` to configure your dotfiles.
 4. Run `manager -i` to initialize the git repository.
 5. Run `manager -p` to copy your dotfiles and push your changes.
 
@@ -34,9 +34,9 @@ How can I use this dotfiles manager?
 | ------------- | ------------ | ----------- |
 | ags           | pacman.conf  | .zshrc      |
 | cava          | makepkg.conf | .zprofile   |
-| fastfetch     |              | .startup.sh |
-| hypr          |              | .Xresources |
-| neofetch      |              |             |
+| fastfetch     | locale.gen   | .startup.sh |
+| hypr          | hosts        | .Xresources |
+| neofetch      | locale.conf  |             |
 | nvim          |              |             |
 | oh-my-posh    |              |             |
 | rofi          |              |             |
