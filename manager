@@ -15,13 +15,16 @@ function divider() {
 }
 
 function red() {
-	echo -e "\e[31m!\e[0;1m $@\e[0m"
+	echo -e "\e[31;1m!!!\e[0;1m $@\e[0m"
 }
 function yellow() {
-	echo -e "\e[33m?\e[0;1m $@\e[0m"
+	echo -e "\e[33;1m!!!\e[0;1m $@\e[0m"
+}
+function h2() {
+	echo -e "\e[36;1m--- $@\e[0m"
 }
 function green() {
-	echo -e "\e[32m*\e[0;1m $@\e[0m"
+	echo -e "\e[32;1m>>>\e[0;1m $@\e[0m"
 }
 function choose() {
 	echo -e -n "$@ \e[1m[\e[32mY\e[0;1m/\e[31mn\e[0;1m]\e[0m "
@@ -32,6 +35,12 @@ function choose() {
 		export return=0
 	fi
 }
+
+function choice() {
+	echo -e -n "\e[33;1m>>> Enter a number to select: \e[0m "
+	read choice
+}
+
 function try() {
 	echo -e -n "\e[90m"
 	eval "$@"
@@ -58,7 +67,7 @@ function try() {
 			esac
 			;;
 		"1")
-			red "Closed"
+			red "Disagreed"
 			exit 1
 			;;
 		esac
@@ -133,22 +142,24 @@ function update() {
 
 function init() {
 	if [[ ! -d "$DIR/.git" ]]; then
-		yellow "You need to initialize a Git repository first."
+		h2 "You need to initialize a Git repository first."
 		try git init
 		try git branch -M main
-		yellow "Adding remote repository"
+		h2 "Adding remote repository"
 		read -p "Your username is " username
 		read -p "Your token/passwd is " token
 		read -p "Your repo url is https://" link
 		export link="https://$username:$token@$link"
 		try git remote add origin "$link"
+	else
+		green "You have already initialized a Git repository."
 	fi
 }
 
 function push() {
 	[[ -d "$DIR"/.git ]] || init
 	try git add .
-	yellow "You need to input a commit message"
+	h2 "You need to input a commit message"
 	read -p "Your commit message is " MSG
 	try git commit -am \""$MSG"\"
 	try git branch -M "$BRANCH"
@@ -156,54 +167,59 @@ function push() {
 }
 
 function select_commit() {
-    # 获取格式化的提交日志并倒序排列（不显示哈希）
-    local commits
-    commits=$(git log --reverse --pretty=format:"%s")
+	# 获取格式化的提交日志并倒序排列（不显示哈希）
+	local commits
+	commits=$(git log --reverse --pretty=format:"%s")
 	date=$(git log --reverse --pretty=format:"%ad" --date=format:"%y.%m.%d")
 
-    # 显示提交日志并让用户选择
-    yellow "We will revert to"
-    IFS=$'\n' read -r -d '' -a commit_array <<<"$commits"
+	# 显示提交日志并让用户选择
+	h2 "We will revert to"
+	IFS=$'\n' read -r -d '' -a commit_array <<<"$commits"
 	DATE=$'\n' read -r -d '' -a date_array <<<"$date"
-    for i in "${!commit_array[@]}"; do
-        echo -e "    \e[1;35m$i\e[0;1m  ${commit_array[$i]}\e[0m \e[2;90m${date_array[$i]}\e[0m"
-    done
 
-    # 读取用户选择
-    read -p "Your choice is number " choice
-    if [[ ! $choice =~ ^[0-9]+$ ]] || ((choice < 0 || choice >= ${#commit_array[@]})); then
-        red "Not a valid choice, please enter a number between 0 and $((${#commit_array[@]} - 1))."
-        exit 1
-    fi
+	for i in "${!commit_array[@]}"; do
+		if [[ $i -eq $(git log --reverse --pretty=format:"%H" | nl -v 0 | grep "$(git rev-parse HEAD)" | awk '{print $1}') ]]; then
+			echo -e "    \e[1;31m$i\e[0;1m ${commit_array[$i]}\e[0m \e[2;90m${date_array[$i]}\e[0m" # 当前版本标红
+		else
+			echo -e "    \e[1;32m$i\e[0;1m ${commit_array[$i]}\e[0m \e[2;90m${date_array[$i]}\e[0m"
+		fi
+	done
 
-    # 获取对应的提交哈希
-    local selected_commit="${commit_array[$choice]}"
-    local hash
-    hash=$(git log --reverse --pretty=format:"%H %s %ad" --date=format:"%y.%m.%d" | grep -F -m 1 "${selected_commit}" | awk '{print $1}')
+	# 读取用户选择
+	choice
+	if [[ ! $choice =~ ^[0-9]+$ ]] || ((choice < 0 || choice >= ${#commit_array[@]})); then
+		red "Not a valid choice, please enter a number between 0 and $((${#commit_array[@]} - 1))."
+		exit 1
+	fi
 
-    # 检查是否成功提取到哈希值
-    if [[ -z "$hash" ]]; then
-        red "We couldn't find the commit hash for your choice."
-        exit 1
-    fi
+	# 获取对应的提交哈希
+	local selected_commit="${commit_array[$choice]}"
+	local hash
+	hash=$(git log --reverse --pretty=format:"%H %s %ad" --date=format:"%y.%m.%d" | grep -F -m 1 "${selected_commit}" | awk '{print $1}')
 
-    # 显示短哈希值并确认是否恢复
-    local short_hash="${hash:0:7}"
-    yellow "Revert"
-    choose "Should we revert to commit $short_hash?"
-    case $return in
-    "0")
-        try git reset --hard "$hash"
-        ;;
-    "1")
-        red "Closed"
-        exit 1
-        ;;
-    esac
+	# 检查是否成功提取到哈希值
+	if [[ -z "$hash" ]]; then
+		red "We couldn't find the commit hash for your choice."
+		exit 1
+	fi
+
+	# 显示短哈希值并确认是否恢复
+	local short_hash="${hash:0:7}"
+	h2 "Revert"
+	choose "Should we revert to commit $short_hash?"
+	case $return in
+	"0")
+		try git reset --hard "$hash"
+		;;
+	"1")
+		red "Disagreed"
+		exit 1
+		;;
+	esac
 }
 
 function copy() {
-	yellow "Copy your dotfiles"
+	h2 "Copy your dotfiles"
 	choose "Should we copy your dotfiles to $HOME?"
 	case $return in
 	"0")
@@ -213,11 +229,11 @@ function copy() {
 		done
 		;;
 	"1")
-		red "Closed"
+		red "Disagreed"
 		;;
 	esac
 
-	yellow "Copy your config files"
+	h2 "Copy your config files"
 	choose "Should we copy your config files to $HOME/.config?"
 	case $return in
 	"0")
@@ -227,10 +243,10 @@ function copy() {
 		done
 		;;
 	"1")
-		red "Closed"
+		red "Disagreed"
 		;;
 	esac
-	yellow "Copy your etc configs"
+	h2 "Copy your etc configs"
 	choose "Should we copy your etc configs to /etc?"
 	case $return in
 	"0")
@@ -240,10 +256,10 @@ function copy() {
 		done
 		;;
 	"1")
-		red "Closed"
+		red "Disagreed"
 		;;
 	esac
-	yellow "Install packages"
+	h2 "Install packages"
 	choose "Should we install your packages?"
 	case $return in
 	"0")
@@ -256,7 +272,7 @@ function copy() {
 		fi
 		;;
 	"1")
-		red "Closed"
+		red "Disagreed"
 		;;
 	esac
 }
@@ -266,24 +282,24 @@ function pull() {
 }
 
 function generate_readme() {
-    local readme_path="$DIR/README.md"
+	local readme_path="$DIR/README.md"
 
-    # 获取 CPU 信息
-    local cpu_info
-    cpu_info=$(grep -m 1 "model name" /proc/cpuinfo | awk -F': ' '{print $2}')
-    if [[ -z "$cpu_info" ]]; then
-        cpu_info="Unknown CPU"
-    fi
+	# 获取 CPU 信息
+	local cpu_info
+	cpu_info=$(grep -m 1 "model name" /proc/cpuinfo | awk -F': ' '{print $2}')
+	if [[ -z "$cpu_info" ]]; then
+		cpu_info="Unknown CPU"
+	fi
 
-    # 获取内存信息
-    local memory_info
-    memory_info=$(grep -m 1 "MemTotal" /proc/meminfo | awk '{printf "%.2f GB", $2 / 1024 / 1024}')
-    if [[ -z "$memory_info" ]]; then
-        memory_info="Unknown Memory"
-    fi
+	# 获取内存信息
+	local memory_info
+	memory_info=$(grep -m 1 "MemTotal" /proc/meminfo | awk '{printf "%.2f GB", $2 / 1024 / 1024}')
+	if [[ -z "$memory_info" ]]; then
+		memory_info="Unknown Memory"
+	fi
 
-    # 写入标题和说明
-    cat > "$readme_path" <<EOF
+	# 写入标题和说明
+	cat >"$readme_path" <<EOF
 # ✨ Silvaire's Dotfiles
 
 > [!NOTE]
@@ -314,24 +330,28 @@ How can I use this dotfiles manager?
 4. Run \`manager -i\` to initialize the git repository.
 5. Run \`manager -p\` to copy your dotfiles and push your changes.
 
+> [!TIP]
+> You can use \`manager --config\` to open the configurator.
+
+
 ## ⚙️ PACKAGES
 
 | CONFIG        | ETC          | HOME        |
 | ------------- | ------------ | ----------- |
 EOF
 
-    # 写入配置文件
-    local max_length=$(( ${#CONFIG[@]} > ${#ETC[@]} ? ${#CONFIG[@]} : ${#ETC[@]} ))
-    max_length=$(( max_length > ${#DOTFILES[@]} ? max_length : ${#DOTFILES[@]} ))
+	# 写入配置文件
+	local max_length=$((${#CONFIG[@]} > ${#ETC[@]} ? ${#CONFIG[@]} : ${#ETC[@]}))
+	max_length=$((max_length > ${#DOTFILES[@]} ? max_length : ${#DOTFILES[@]}))
 
-    for ((i = 0; i < max_length; i++)); do
-        local config_item="${CONFIG[i]:-}"
-        local etc_item="${ETC[i]:-}"
-        local home_item="${DOTFILES[i]:-}"
-        printf "| %-13s | %-12s | %-11s |\n" "$config_item" "$etc_item" "$home_item" >> "$readme_path"
-    done
+	for ((i = 0; i < max_length; i++)); do
+		local config_item="${CONFIG[i]:-}"
+		local etc_item="${ETC[i]:-}"
+		local home_item="${DOTFILES[i]:-}"
+		printf "| %-13s | %-12s | %-11s |\n" "$config_item" "$etc_item" "$home_item" >>"$readme_path"
+	done
 
-    green "README.md has been generated at $readme_path"
+	green "README.md has been generated at $readme_path"
 }
 
 case $1 in

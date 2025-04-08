@@ -1,0 +1,128 @@
+{
+  "position": "top",
+  "height": 30,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "custom/Arch-Logo",
+    "hyprland/workspaces",
+    // "wlr/taskbar",
+    "hyprland/window"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    // "custom/randwall",
+    // "network",
+    "cpu",
+    "memory",
+    "disk",
+    // "backlight",
+    "pulseaudio",
+    // "battery",
+    // "custom/pacman",
+    "clock",
+    "group/sys-tray"
+  ],
+  "hyprland/window": {
+    "format": "{}"
+  },
+  "clock": {
+    "format": " {:%a. %d %b. %H:%M:%S} ",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1,
+    "on-click": "wlogout"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "active-only": false,
+    "all-outputs": true,
+    "disable-scroll": true,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    // "icon-theme": "Win11-dark",
+    "max-length": 5,
+    "rotate": 0,
+    "icon-size": 20,
+    "spacing": 0,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-right": "close",
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    }
+  },
+  "memory": {
+    "format": "  {}%",
+    "format-alt": "  {used}/{total} GiB",
+    "interval": 1
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "format-alt": "  {avg_frequency} GHz",
+    "interval": 1
+  },
+  "disk": {
+    "format": "󰋊 {percentage_used}%",
+    "format-alt": "󰋊 {used}/{total}",
+    "interval": 5,
+    "path": "/"
+  },
+  // "tray": {
+  // "icon-size": 20,
+  // "spacing": 5,
+  // },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 6
+  },
+  "custom/tray-collapsed": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/tray-left-end": {
+    "format": " ",
+    "tooltip": false
+  },
+  "group/sys-tray": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      // "custom/tray-collapsed",
+      "tray"
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  0%",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pulsemixer --toggle-mute",
+    "on-scroll-up": "amixer set Master 5%+",
+    "on-scroll-down": "amixer set Master 5%-"
+  },
+  "custom/Arch-Logo": {
+    "format": " 󰣇 ",
+    "on-click": "rofi -show drun"
+  },
+  "custom/sd": {
+    "format": "  ",
+    "on-click": "wlogout"
+  }
+}

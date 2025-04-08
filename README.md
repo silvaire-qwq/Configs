@@ -28,6 +28,10 @@ How can I use this dotfiles manager?
 4. Run `manager -i` to initialize the git repository.
 5. Run `manager -p` to copy your dotfiles and push your changes.
 
+> [!TIP]
+> You can use `manager --config` to open the configurator.
+
+
 ## ⚙️ PACKAGES
 
 | CONFIG        | ETC          | HOME        |
