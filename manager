@@ -307,7 +307,7 @@ function generate_readme() {
 
 ## 💻 HOSTS
 
-| ITEM   | VALUE                                |
+| ITEMS  | VALUES                               |
 | ------ | ------------------------------------ |
 | Kernel | $(uname -r)                          |
 | System | $(lsb_release -d | awk -F'\t' '{print $2}') |

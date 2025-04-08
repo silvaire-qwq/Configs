@@ -5,7 +5,7 @@
 
 ## 💻 HOSTS
 
-| ITEM   | VALUE                                |
+| ITEMS  | VALUES                               |
 | ------ | ------------------------------------ |
 | Kernel | 6.12.7-rt-x64v3-xanmod1                          |
 | System | Arch Linux |
