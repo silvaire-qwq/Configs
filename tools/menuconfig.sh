@@ -5,9 +5,15 @@ CONFIG_FILE="$(dirname "$0")/../manager.conf"
 TMP_CONFIG_FILE="/tmp/manager.conf.tmp"
 
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo -e "\e[1;31m!!! Configuration file $CONFIG_FILE does not exist!\e[0m"
-    exit 1
+    echo -e "\e[1;33m>>> \e[0;1mConfiguration file not found, so we will create a new one.\e[0m"
+    touch "$CONFIG_FILE"
+    echo "#!/bin/bash
+
+# Directory where the dotfiles are stored
+export DIR=\"$HOME/Dotfiles\"
+export BRANCH=\"main\"" >>"$CONFIG_FILE"
 fi
+
 source "$CONFIG_FILE"
 
 # Display a styled header

@@ -23,8 +23,8 @@ How can I use this dotfiles manager?
 
 0. Install `git` and `bash`
 1. Clone this repository.
-2. Remove config, env, etc, and home folders.
-3. Edit manager.conf or run `manager --config` to configure your dotfiles.
+2. Delete config, env, etc, home, README.md and manager.conf.
+3. Run `manager --config` to configure your dotfiles manager.
 4. Run `manager -i` to initialize the git repository.
 5. Run `manager -p` to copy your dotfiles and push your changes.
 

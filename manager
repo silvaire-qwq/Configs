@@ -3,10 +3,7 @@
 # ~~~~~ CONFIGURATIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Script Version
-export VERSION="Preview Version"
-
-# Moved to manager.conf
-source "$(dirname "$0")/manager.conf"
+export VERSION="v0.1 (Preview)"
 
 # ~~~~~ DO NOT EDIT BELOW THIS LINE ~~~~~~~~~~~~~
 
@@ -78,6 +75,24 @@ function try() {
 function Checking() {
 	{ [[ -d $1 ]] || [[ -f $1 ]]; } || { try mkdir -p "$1" && try chmod 777 -R "$1"; }
 }
+
+# Moved to manager.conf
+export CONFIG="$(dirname "$0")/manager.conf"
+if [[ -f $CONFIG ]]; then
+	source "$CONFIG"
+else
+	yellow "The config file is not found, we will open the configurator for you."
+	choose "Should we open the configurator and create a config file for you?"
+	case $return in
+	"0")
+		try bash "$(dirname "$0")/tools/menuconfig.sh"
+		;;
+	"1")
+		red "Disagreed"
+		exit 1
+		;;
+	esac
+fi
 
 if [[ ! $DIR ]]; then
 	red "You need to set a directory"
@@ -325,8 +340,8 @@ How can I use this dotfiles manager?
 
 0. Install \`git\` and \`bash\`
 1. Clone this repository.
-2. Remove config, env, etc, and home folders.
-3. Edit manager.conf or run \`manager --config\` to configure your dotfiles.
+2. Delete config, env, etc, home, README.md and manager.conf.
+3. Run \`manager --config\` to configure your dotfiles manager.
 4. Run \`manager -i\` to initialize the git repository.
 5. Run \`manager -p\` to copy your dotfiles and push your changes.
 
