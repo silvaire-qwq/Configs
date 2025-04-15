@@ -28,6 +28,7 @@ android-tools
 android-udev
 aom
 apparmor
+appimage-installer-bin-debug
 appmenu-glib-translator-git
 appmenu-glib-translator-git-debug
 appstream
@@ -151,6 +152,7 @@ cryptsetup
 cups-pk-helper
 curl
 cursor-bin
+daed
 dart-sass
 dash
 dav1d
@@ -167,6 +169,7 @@ dconf-editor
 ddcutil
 debootstrap
 debugedit
+deepin-desktop-base
 default-cursors
 desktop-file-utils
 device-mapper
@@ -196,6 +199,11 @@ dpkg
 draco
 dsniff
 dtc
+dtkcommon
+dtkcore
+dtkgui
+dtklog
+dtkwidget
 duf
 duktape
 dunst
@@ -232,7 +240,6 @@ evillimiter
 exempi
 exfat-utils
 exiv2
-exo
 expac
 expat
 expect
@@ -290,7 +297,6 @@ fuse3
 fuzzel
 fzf
 gammastep
-garcon
 gawk
 gc
 gcc
@@ -374,6 +380,7 @@ groff
 grpc
 grub
 gsettings-desktop-schemas
+gsettings-qt
 gsettings-system-schemas
 gsfonts
 gsm
@@ -795,7 +802,6 @@ kitemmodels
 kitemmodels5
 kitemviews
 kitemviews5
-kitty
 kitty-shell-integration
 kitty-terminfo
 kjobwidgets
@@ -1219,6 +1225,7 @@ libqaccessibilityclient-qt6
 libqalculate
 libqmi
 libqrtr-glib
+libqt5xdg
 libraqm
 libraw
 libraw1394
@@ -1312,8 +1319,6 @@ libxdg-basedir
 libxdmcp
 libxdp
 libxext
-libxfce4ui
-libxfce4util
 libxfixes
 libxfont2
 libxft
@@ -1362,6 +1367,7 @@ log4cplus
 lolcat
 lowdown
 lsb-release
+lshw
 lsof
 lttng-ust
 lua
@@ -1386,6 +1392,8 @@ man-db
 mariadb-libs
 marisa
 materialx
+matugen-bin
+matugen-bin-debug
 mbedtls
 mbedtls2
 md4c
@@ -1426,8 +1434,10 @@ mtdev
 mtools
 mtpfs
 mujs
+musikcube-bin
 musikcube-bin-debug
 mutter
+naiveproxy
 nano
 nasm
 nautilus
@@ -1450,9 +1460,7 @@ net-tools
 netpbm
 netstandard-targeting-pack
 nettle
-network-manager-applet
 networkmanager
-networkmanager-qt5
 nfs-utils
 nfsidmap
 nftables
@@ -1461,7 +1469,6 @@ nim
 ninja
 nix-busybox
 nlohmann-json
-nm-connection-editor
 nmap
 node-gyp
 nodejs
@@ -1699,7 +1706,9 @@ python-httpcore
 python-httplib2
 python-httpx
 python-hypothesis
+python-id
 python-idna
+python-image-go-nord
 python-imageio
 python-imageio-ffmpeg
 python-importlib-metadata
@@ -2231,8 +2240,6 @@ xf86-input-synaptics
 xf86-input-vmmouse
 xf86-video-intel
 xf86-video-vesa
-xfce4-settings
-xfconf
 xfsprogs
 xkeyboard-config
 xmlsec

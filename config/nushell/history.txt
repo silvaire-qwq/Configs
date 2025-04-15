@@ -1,0 +1,380 @@
+cd ~/.config/nushell/
+l
+ls
+nvim config.nu
+clear
+l
+ls
+cd ~/.config/nushell/
+ls
+sudo mkdir src
+cd src
+ls
+starship init nu | save -f ./starship.nu
+starship init nu | sudo save -f ./starship.nu
+starship init nu | save -f ./starship.nu
+starship init nu | sudo tee -a ./starship.nu
+l
+ls
+cd ..
+ls
+nvim $nu.config-path
+config nu
+nvim $nu.config-path
+nu
+clear
+ls
+help commands
+ls
+ls | get name
+ls | get type
+l
+ls
+cd ~/.config/nushell/
+ls
+sudo nvim config.nu
+ls
+nu
+ls
+sudo nvim config.nu
+elvish
+clear
+ls
+ls --help
+ls -as
+ls -s
+whoami
+ls
+pwd
+sudo pacman -Syyu
+ls
+ls --help
+clear
+ls
+whomai
+>>
+ls >> a
+save
+save --help
+{ a: 1, b: 2}
+echo $a
+{ a: 1, b: 2 }
+{ a: 1, b: 2 , c: 3}
+echo $a
+wc
+ls
+clear
+ls
+whoami
+nvim
+whoami
+ls
+function a() {echo a}
+a(){echo a}
+a
+a(){echo a}
+man ls
+ls --help
+whoami
+clear
+whoami 
+ls
+whoami
+ls
+sudo pacman -Syyu
+ls
+cd /etc
+ls
+sudo nvim pacman.conf
+sudo nvim pacman.conf.pacnew
+ls
+cd /etc
+ls
+clear
+ls
+cd ~/.config/nvim
+ls
+atuin
+open
+open .zshrc
+open ~/.zshrc
+cd ../nushell/
+ls
+ls -lah
+ls -l
+ls -la
+ls
+cd src
+ls
+cd ..
+l
+ls
+cd src
+l
+ls
+nvim catppuccin.nu
+cd ..
+ls
+sudo nvim .
+ls
+whoami
+ls -a
+ls
+whoami
+ls
+whoami
+ls
+clear
+sudo pacman -Syyuu
+ls
+cd ~/.config/nushell/
+ls
+cd src
+ls
+sudo mkdir -p themes
+ls
+sudo mv -i catppuccin-mocha.nu starship.nu themes/
+clear
+whoami
+clear
+ls
+ls --help
+ls --help | grep highlight
+ls
+ban kitty
+sudo pacman -R kitty
+fish
+sudo nvim config.nu
+ls
+sudo pacman -Syyuu
+ls
+whoami]
+sudo pacman -Syyuu
+clear
+ls
+sudo pacman -Syyuu
+sudo nvim .
+ls
+code .
+sudo pacman -Syyuu
+pacman -S pacman
+ls
+clear
+cat
+pwd
+clear
+sudo pacman -Syyuu
+neofetch
+open /etc/pacman.conf
+sudo nvim /etc/passwd
+ls ~/.config/nushell/src/**/*.nu | get name
+echo $script
+echo $scripts
+source $scripts
+source $scripts.*
+$scripts | each { |script| source $script }
+$scripts
+$scripts | each
+$scripts | each { |script| }
+$scripts | each { |script| source $script }
+ls ~/.config/nushell/src/**/*.nu | get name
+ls ~/.config/nushell/src/**/*.nu | get path
+ls ~/.config/nushell/src/**/*.nu
+ls ~/.config/nushell/src/**/*.nu | help
+ls ~/.config/nushell/src/**/*.nu | get --help
+ls ~/.config/nushell/src/**/*.nu | get paTH
+ls ~/.config/nushell/src/**/*.nu | get path
+ls ~/.config/nushell/src/**/*.nu | get 1
+ls ~/.config/nushell/src/**/*.nu | get 2
+ls ~/.config/nushell/src/**/*.nu | get name
+sudo ls ~/.config/nushell/src/**/*.nu | get name
+sudo ls ~/.config/nushell/src/**/*.nu
+sudo ls ~/.config/nushell/src/**/*.nu | echo ""
+sudo ls ~/.config/nushell/src/**/*.nu
+ls ~/.config/nushell/src/**/*.nu | get full-path
+ls ~/.config/nushell/src/**/*.nu | get path
+ls ~/.config/nushell/src/**/*.nu | get full-path
+ls ~/.config/nushell/src/**/*.nu
+ls ~/.config/nushell/src/**/*.nu | get name
+ls ~/.config/nushell/src/**/*.nu | get name | get 2
+ls ~/.config/nushell/src/**/*.nu | get name | get 1
+ls ~/.config/nushell/src/**/*.nu | get name | get 2
+ls ~/.config/nushell/src/**/*.nu | get name | get 3
+ls ~/.config/nushell/src/**/*.nu | get name | get 4
+ls ~/.config/nushell/src/**/*.nu | get name | get 3
+ls ~/.config/nushell/src/**/*.nu | get name | get 0
+ls ~/.config/nushell/src/**/*.nu | get name | get *
+ls ~/.config/nushell/src/**/*.nu | get name | get 
+ls ~/.config/nushell/src/**/*.nu | get name | get name
+ls ~/.config/nushell/src/**/*.nu | get name | get 2
+ls ~/.config/nushell/src/**/*.nu | get name | get {0-1}
+ls ~/.config/nushell/src/**/*.nu | get name | get --help
+ls ~/.config/nushell/src/**/*.nu | get name | get B
+ls ~/.config/nushell/src/**/*.nu | get name | get A
+ls ~/.config/nushell/src/**/*.nu | get name | get {B}
+ls ~/.config/nushell/src/**/*.nu | get name | get
+clear
+ls
+whoami
+nu
+nu-highlight
+open .zshrc | nu-highlight
+open ~/.zshrc | nu-highlight
+open ~/.zshrc | nu-highlight | less -R
+(ls) >> test
+>>
+echo "a" >> a
+str
+str replace
+nu
+sed
+echo "a" | sed "s/a/b/" 
+echo "a" | sed "s/a/b/" -i
+echo "a" | sed "s/a/b/" -r
+echo "a" | sed s a b
+echo "a" | sed a b
+1
+2
+3
+4
+pwd
+...
+1
+2
+3
+4
+5
+6
+7
+8
+please
+.zshrc
+sd
+ls
+nu
+nu
+ls
+ls /
+ls ~
+ls
+ls --color=never
+run
+z
+zoxide init
+packer
+packer update
+nu -c (http get https://raw.githubusercontent.com/jan9103/packer.nu/master/install.nu)
+nu
+overlay
+packer
+sudo rm -rf ~/.local/share/nushell/
+clear
+sudo rm -rf ~/.local/share/nushell/
+nupm
+ls
+cd Workdir/
+ls
+sudo nvim test.nu
+ls
+./test.nu
+sudo chmod 777 test.nu
+./test.nu
+ls
+nu test.nu
+todo
+do
+cd download
+cd Download/
+ls
+sudo rm -rf QQ*
+ls
+def nufzf [] {$in | each {|i| $i | to json --raw} | str join "\n" | fzf  | from json}
+fzf
+nufzf
+nufzf ls
+ls | nufzf
+nufzf
+ls | nufzf
+ls
+ls | nufzf
+cd src/
+ls
+clear
+sudo pacman -Syyuu\
+sudo pacman -Syyuu
+yat
+yay
+ls
+cd Dotfiles/
+ls
+./manager
+./manager --config
+ls
+./manager --config
+ls
+./manager -r
+ls
+pacman
+pacman -Syyuu
+ls
+sudo pacman -Syyuu
+edit
+ls
+export
+const $env.EDITOR
+const $env.editor
+$env.editor
+$env
+ls
+ls --help
+ls -as
+ls --help
+ls **/*
+tree
+exa
+exa -lha
+ls
+sudo nvim .startup.sh
+ls
+ks
+ls
+clear
+sudo pacman -Syyuu
+>>
+ls
+save
+ls
+cd ~/.config/nushell/
+ls
+sudo nvim config.nu
+clear
+nvim
+cd ~/.config/nushell/
+ls
+sudo nvim src/themes/catppuccin-mocha.nu
+sudo pacman -Syyuu
+sudo pacman -Syyuu
+ls
+cd ~/.config/nushell/
+ls
+sudo pacman -Syyuu
+clear
+sudo pacman -Syyuu
+clear
+sudo pacman -Syyuu
+weztermrc
+ls
+sudo pacman -Syyuu
+ls
+sudo chmod g-w,o-w *
+ls
+\ls
+sudo ls
+sudo ls -lha
+sudo ls -lh
+sudo chown -R $env.USER:$env.USER *
+sudo chown -R ($env.USER):($env.USER) *
+sudo chown -R $"($env.USER):($env.USER)" *
+ls
+clear
+ls
