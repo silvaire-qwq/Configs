@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	pattern = { "*" },
 	callback = function()
-		vim.api.nvim_exec('silent! normal! g`"zv', false)
+		vim.api.nvim_exec2('silent! normal! g`"zv', { output = false })
 	end,
 })
 
@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = "IrreplaceableWindows",
 	pattern = "*",
 	callback = function()
-		local filetypes = { "OverseerList", "neo-tree", "toggleterm" }
+		local filetypes = { "OverseerList", "neo-tree" }
 		local buftypes = { "nofile", "terminal" }
 		if vim.tbl_contains(buftypes, vim.bo.buftype) and vim.tbl_contains(filetypes, vim.bo.filetype) then
 			vim.cmd("set winfixbuf")
@@ -80,6 +80,13 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("ExitPre", {
+	group = vim.api.nvim_create_augroup("Exit", { clear = true }),
+	command = "set guicursor=a:ver90",
+	desc = "Set cursor back to beam when leaving Neovim.",
+})
+
+-- Alpha Dashboard
 vim.api.nvim_create_autocmd("User", {
 	pattern = "AlphaReady",
 	command = "set showtabline=0 | set laststatus=0",

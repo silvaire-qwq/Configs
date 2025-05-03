@@ -1,6 +1,5 @@
 return {
   'folke/flash.nvim',
-  keys = { 's' },
   opts = {
     -- jump = {
     --   autojump = true,
@@ -27,7 +26,7 @@ return {
   },
   keys = {
     {
-      's',
+      '<c-s>',
       mode = { 'n', 'x', 'o' },
       function()
         require('flash').jump()

@@ -36,11 +36,11 @@ How can I use this dotfiles manager?
 
 | CONFIG        | ETC          | HOME        |
 | ------------- | ------------ | ----------- |
-| ags           | pacman.conf  | .zshrc      |
-| cava          | makepkg.conf | .zprofile   |
-| fastfetch     | locale.gen   | .startup.sh |
-| hypr          | hosts        | .Xresources |
-| neofetch      | locale.conf  |             |
+| ags           |              | .zshrc      |
+| cava          |              | .zprofile   |
+| fastfetch     |              | .startup.sh |
+| hypr          |              | .Xresources |
+| neofetch      |              |             |
 | nvim          |              |             |
 | oh-my-posh    |              |             |
 | rofi          |              |             |

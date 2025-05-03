@@ -254,6 +254,7 @@ function copy() {
 	"0")
 		for config in "${CONFIG[@]}"; do
 			export position="$DIR/config/$config"
+			try rm -rf "$HOME/.config/$config"
 			try cp -rpuv "$position" "$HOME/.config"
 		done
 		;;
@@ -267,6 +268,7 @@ function copy() {
 	"0")
 		for etc in "${ETC[@]}"; do
 			export position="$DIR/etc/$etc"
+			try rm -rf "/etc/$etc"
 			try cp -rpuv "$position" "/etc/$etc"
 		done
 		;;

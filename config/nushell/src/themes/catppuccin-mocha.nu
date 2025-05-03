@@ -28,8 +28,8 @@ let theme = {
 }
 
 let scheme = {
-  recognized_command: $theme.blue
-  unrecognized_command: { fg: $theme.red attr: b}
+  recognized_command: { fg: $theme.lavender }
+  unrecognized_command: { fg: $theme.red attr: b }
   constant: $theme.peach
   punctuation: $theme.overlay2
   operator: $theme.sky

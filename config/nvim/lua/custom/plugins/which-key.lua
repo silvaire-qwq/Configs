@@ -1,7 +1,9 @@
-return { -- Useful plugin to show you pending keybinds.
+return {
 	"folke/which-key.nvim",
-	event = "VimEnter", -- Sets the loading event to 'VimEnter'
-	config = function() -- This is the function that runs, AFTER loading
+	enabled = true,
+	event = "VimEnter",
+	config = function()
+		---@diagnostic disable-next-line: missing-fields
 		require("which-key").setup({
 			---@param ctx { mode: string, operator: string }
 			defer = function(ctx)
@@ -14,40 +16,44 @@ return { -- Useful plugin to show you pending keybinds.
 			icons = {
 				colors = true,
 				keys = {
-					Up = "􀄨 ",
-					Down = "􀄩 ",
-					Left = "􀄪 ",
-					Right = "􀄫 ",
-					C = "􀆍 ",
-					M = "􀆕 ",
-					S = "􀆝 ",
-					CR = "􀅇 ",
-					Esc = "􀆧 ",
-					ScrollWheelDown = "󱕐 ",
-					ScrollWheelUp = "󱕑 ",
-					NL = "􀅇 ",
-					BS = "􁂉 ",
-					Space = "􁁺 ",
-					Tab = "􀅂 ",
+					Up = "􀄨",
+					Down = "􀄩",
+					Left = "􀄪",
+					Right = "􀄫",
+					C = "􀆍",
+					M = "􀆕",
+					S = "􀆝",
+					CR = "􀅇",
+					Esc = "􀆧",
+					ScrollWheelDown = "󱕐",
+					ScrollWheelUp = "󱕑",
+					NL = "􀅇",
+					BS = "􁂉",
+					Space = "󱁐",
+					Tab = "􀅂",
 				},
 			},
 		})
 
 		-- Document existing key chains
 		require("which-key").add({
-			{ "<leader>a", group = "Avante", mode = "n", icon = " " },
-			{ "<leader>n", group = "Note", mode = "n", icon = " " },
-			{ "<leader>g", group = "Git" },
-			{ "<leader>b", group = "Buffer", mode = "n", icon = " " },
-			{ "<leader>l", group = "Lsp", mode = "n", icon = "󰿘 " },
-			{ "<leader>o", group = "[Deprecate] Overseer tasks", mode = "n", icon = "󰑮 " },
-			{ "<leader>r", group = "Overseer tasks", mode = "n", icon = "󰑮 " },
+			{ "g", group = "Go to", icon = "󰿅" },
+			{ "<leader>a", group = "Avante", icon = "󰚩" },
+			{ "<leader>b", group = "Buffer", icon = "" },
+			{ "<leader>d", group = "DAP", icon = "" },
+			{ "<leader>c", group = "DiffView", icon = "" },
+			{ "<leader>e", group = "Toggle Tree", icon = "" },
+			{ "<leader>g", group = "Git", icon = "" },
+			{ "<leader>i", group = "Toggle Boolean", icon = "" },
+			{ "<leader>l", group = "Lsp", mode = "n", icon = "" },
+			{ "<leader>r", group = "Overseer tasks", mode = "n", icon = "󰑮" },
 			{ "<leader>f", group = "Find", mode = "n" },
-			{ "<leader>e", group = "File Browser", mode = "n", icon = "󰉋 " },
-			{ "<leader>s", group = "Search", mode = "n" },
-			{ "<leader>x", group = "Trouble", mode = "n", icon = " " },
+			{ "<leader>w", group = "Save this file", icon = "" },
+			{ "<leader>q", group = "Exit", icon = "󰿅" },
+			{ "<leader>t", group = "Toggle Terminal", icon = " " },
 			{ "<leader>h", group = "Git Hunk", mode = { "n", "v" } },
-			{ "<leader>i", group = "Toggle Boolean", mode = "n", icon = "󰔡 " },
+			{ "<leader>P", group = "Picture", icon = "" },
+			{ "<leader>x", group = "Execute Lua", icon = "", mode = { "n", "v" } },
 		})
 	end,
 }

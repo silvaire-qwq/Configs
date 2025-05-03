@@ -1,28 +1,44 @@
 #!/bin/zsh
 
+# ╭─────────────────────────────────────────────────────────╮
+# │                         CONFIGS                         │
+# ╰─────────────────────────────────────────────────────────╯
+
+local PLUGINS_FROM_OMZ=(
+    git
+)
+
+local LIB_FROM_OMZ=(
+    async_prompt
+    git
+    grep
+    clipboard
+    completion
+    history
+    key-bindings
+    termsupport
+    theme-and-appearance
+    prompt_info_functions
+    directories
+)
+
 local SNIPPET=(
-    OMZ::plugins/git/git.plugin.zsh
-    OMZ::lib/git.zsh
-    OMZ::lib/clipboard.zsh
-    OMZ::lib/completion.zsh
-    OMZ::lib/history.zsh
-    OMZ::lib/key-bindings.zsh
-    OMZ::lib/theme-and-appearance.zsh
 )
 
 local LIGHT=(
     zdharma-continuum/history-search-multi-word
-    Aloxaf/fzf-tab
     zsh-users/zsh-autosuggestions
     zdharma-continuum/fast-syntax-highlighting
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     ael-code/zsh-colored-man-pages
+    silvaire-qwq/arch-command-not-found
+    # Aloxaf/fzf-tab
 )
 
-# List (exa) Default Options
-local EXA_DEFAULT_OPTS=(
+# List (eza) Default Options
+local EZA_DEFAULT_OPTS=(
     '--color=auto'
     '--icons=auto'
     '--sort=type'
@@ -63,59 +79,63 @@ local OPTIONS=(
     'HUP'
 )
 
-# /---------- Set Opts  ----------/
+# ╭─────────────────────────────────────────────────────────╮
+# │                       HIGHLIGHTING                      │
+# ╰─────────────────────────────────────────────────────────╯
 
-setopt $OPTIONS
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
+typeset -gA ZSH_HIGHLIGHT_STYLES=(
+    comment                              'fg=#585b70'
+    alias                                'fg=#a6e3a1'
+    suffix-alias                         'fg=#a6e3a1'
+    global-alias                         'fg=#a6e3a1'
+    function                             'fg=#a6e3a1'
+    command                              'fg=#a6e3a1'
+    precommand                           'fg=#a6e3a1,italic'
+    autodirectory                        'fg=#fab387,italic'
+    single-hyphen-option                 'fg=#fab387'
+    double-hyphen-option                 'fg=#fab387'
+    back-quoted-argument                 'fg=#cba6f7'
+    builtin                              'fg=#a6e3a1'
+    reserved-word                        'fg=#a6e3a1'
+    hashed-command                       'fg=#a6e3a1'
+    commandseparator                     'fg=#f38ba8'
+    command-substitution-delimiter       'fg=#cdd6f4'
+    command-substitution-delimiter-unquoted 'fg=#cdd6f4'
+    process-substitution-delimiter       'fg=#cdd6f4'
+    back-quoted-argument-delimiter       'fg=#f38ba8'
+    back-double-quoted-argument          'fg=#f38ba8'
+    back-dollar-quoted-argument          'fg=#f38ba8'
+    command-substitution-quoted          'fg=#f9e2af'
+    command-substitution-delimiter-quoted 'fg=#f9e2af'
+    single-quoted-argument               'fg=#f9e2af'
+    single-quoted-argument-unclosed      'fg=#eba0ac'
+    double-quoted-argument               'fg=#f9e2af'
+    double-quoted-argument-unclosed      'fg=#eba0ac'
+    rc-quote                             'fg=#f9e2af'
+    dollar-quoted-argument               'fg=#cdd6f4'
+    dollar-quoted-argument-unclosed      'fg=#eba0ac'
+    dollar-double-quoted-argument        'fg=#cdd6f4'
+    assign                               'fg=#cdd6f4'
+    named-fd                             'fg=#cdd6f4'
+    numeric-fd                           'fg=#cdd6f4'
+    unknown-token                        'fg=#eba0ac'
+    path                                 'fg=#cdd6f4,underline'
+    path_pathseparator                   'fg=#f38ba8,underline'
+    path_prefix                          'fg=#cdd6f4,underline'
+    path_prefix_pathseparator            'fg=#f38ba8,underline'
+    globbing                             'fg=#cdd6f4'
+    history-expansion                    'fg=#cba6f7'
+    back-quoted-argument-unclosed        'fg=#eba0ac'
+    redirection                          'fg=#cdd6f4'
+    arg0                                 'fg=#cdd6f4'
+    default                              'fg=#cdd6f4'
+    cursor                               'fg=#cdd6f4'
+)
 
-# /---------- Custom Configs ----------/
-
-
-# More Histories
-export HISTSIZE=65535
-export SAVEHIST=65535
-
-# FZF Default Opts
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#1e1e2e,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#9399b2,header:#f38ba8,info:#b4befe,pointer:#b4befe \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#b4befe,hl+:#b4befe \
---color=selected-bg:#1e1e2e \
---color 'border:#45475a,label:#7f849c' \
---multi \
---height=50% --border --header-lines 0 --tac --tiebreak=begin \
---delimiter : \
---no-scrollbar --border-label "Search" \
-"
-
-# Source Profiles & Envs
-. /etc/profile
-. /etc/environment
-. /etc/locale.conf
-
-# Zoxide Init
-eval "$(zoxide init zsh)"
-
-# The Fxck Init
-# eval "$(thefuck --alias)"
-
-# Starship Init
-eval "$(starship init zsh)"
-
-# Direnv Init
-# eval "$(direnv hook zsh)"
-
-# Prompt Init
-# . ~/.oh-my-zsh/custom/themes/jovial.zsh-theme
-
-# Bun Init 
-[ -s "/home/arch/.bun/_bun" ] && source "/home/arch/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# hide EOL sign ('%')
-export PROMPT_EOL_MARK=""
-
-# /---------- Plugins Manager ----------/
+# ╭─────────────────────────────────────────────────────────╮
+# │                      PLUGIN MANAGER                     │
+# ╰─────────────────────────────────────────────────────────╯
 
 autoload -Uz compinit
 autoload -Uz _zinit
@@ -136,6 +156,16 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 zinit ice lucid wait='0'
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 
+for zinit_temp ("${PLUGINS_FROM_OMZ[@]}") {
+    zinit snippet OMZ::plugins/"$zinit_temp"/"$zinit_temp".plugin.zsh
+}
+unset zinit_temp
+
+for zinit_temp ("${LIB_FROM_OMZ[@]}") {
+    zinit snippet OMZ::lib/"$zinit_temp".zsh
+}
+unset zinit_temp
+
 for zinit_temp ("${SNIPPET[@]}") {
     zinit snippet "$zinit_temp"
 }
@@ -146,7 +176,84 @@ for zinit_temp ("${LIGHT[@]}") {
 }
 unset zinit_temp
 
-# /---------- Aliases ----------/
+
+# ╭─────────────────────────────────────────────────────────╮
+# │                       COMPLETIONS                       │
+# ╰─────────────────────────────────────────────────────────╯
+
+if [[ ! -d $HOME/.local/share/argc-completions ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}argc-completions%F{220}…%f"
+    command mkdir -p "$HOME/.local/share/argc-completions"
+	command chmod g-rwX "$HOME/.local/share/argc-completions"
+    command git clone https://github.com/sigoden/argc-completions.git "$HOME/.local/share/argc-completions" 
+    command sudo zsh -c "$HOME/.local/share/argc-completions/scripts/download-tools.sh" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The init has failed.%f%b"
+
+    # Init
+fi
+
+# argc-completions
+export ARGC_COMPLETIONS_ROOT="$HOME/.local/share/argc-completions"
+export ARGC_COMPLETIONS_PATH="$ARGC_COMPLETIONS_ROOT/completions/linux:$ARGC_COMPLETIONS_ROOT/completions"
+export PATH="$ARGC_COMPLETIONS_ROOT/bin:$PATH"
+# To add completions for only the specified command, modify next line e.g. argc_scripts=( cargo git )
+argc_scripts=( $(ls -p -1 "$ARGC_COMPLETIONS_ROOT/completions/linux" "$ARGC_COMPLETIONS_ROOT/completions" | sed -n 's/\.sh$//p') )
+source <(argc --argc-completions zsh $argc_scripts)
+
+# ╭─────────────────────────────────────────────────────────╮
+# │                       ENVIRONMENTS                      │
+# ╰─────────────────────────────────────────────────────────╯
+
+# Set Options
+setopt $OPTIONS
+
+# More Histories
+export HISTSIZE=65535
+export SAVEHIST=65535
+
+# Create a function
+omz_urlencode(){}
+
+# Source Profiles & Envs
+. /etc/profile
+. /etc/environment
+. /etc/locale.conf
+
+# Zoxide Init
+eval "$(zoxide init zsh)"
+
+# Fxxk Init
+eval "$(thefuck --alias)"
+
+# Starship Init
+eval "$(starship init zsh)"
+
+# Atuin init
+eval "$(atuin init zsh)"
+
+# LS_COLORS init
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
+
+# hide EOL sign ('%')
+export PROMPT_EOL_MARK=""
+
+# FZF Default Opts
+export FZF_DEFAULT_OPTS="\
+--color=bg+:#1e1e2e,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#9399b2,header:#f38ba8,info:#b4befe,pointer:#b4befe \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#b4befe,hl+:#b4befe \
+--color=selected-bg:#1e1e2e \
+--color 'border:#45475a,label:#7f849c' \
+--multi \
+--height=50% --border --header-lines 0 --tac --tiebreak=begin \
+--delimiter : \
+--no-scrollbar --border-label "Search" \
+"
+
+# ╭─────────────────────────────────────────────────────────╮
+# │                         ALIASES                         │
+# ╰─────────────────────────────────────────────────────────╯
 
 if [[ -x $(command -v pacman) ]]; then
     alias 'banner'='sudo pacman -Rscn'
@@ -171,11 +278,11 @@ if [[ -f ~/.config/wezterm/wezterm.lua ]]; then
     alias 'weztermrc'='sudo nvim ~/.config/wezterm/wezterm.lua'
 fi
 
-if [[ -x $(command -v exa) ]]; then
-    alias 'l'="exa -lha $EXA_DEFAULT_OPTS"
-    alias 'ls'="exa -lh $EXA_DEFAULT_OPTS"
-    alias 'la'="exa -lha $EXA_DEFAULT_OPTS"
-    alias 'll'="exa -lha $EXA_DEFAULT_OPTS"
+if [[ -x $(command -v eza) ]]; then
+    alias 'l'="eza -lha $EZA_DEFAULT_OPTS"
+    alias 'ls'="eza -lh $EZA_DEFAULT_OPTS"
+    alias 'la'="eza -lha $EZA_DEFAULT_OPTS"
+    alias 'll'="eza -lha $EZA_DEFAULT_OPTS"
 fi
 
 [[ ! -x $(command -v z) ]] || alias "cd"="z"
@@ -184,20 +291,8 @@ fi
 
 # Force Alias
 if [[ 1 -eq 1 ]]; then
-    alias ...=../..
-    alias ....=../../..
-    alias .....=../../../..
-    alias ......=../../../../..
-    alias 1='cd -'
-    alias 2='cd -2'
-    alias 3='cd -3'
-    alias 4='cd -4'
-    alias 5='cd -5'
-    alias 6='cd -6'
-    alias 7='cd -7'
-    alias 8='cd -8'
-    alias 9='cd -9'
     alias 'sd'='shutdown 0'
     alias '.zshrc'='nvim ~/.zshrc'
     alias 'please'='sudo'
 fi
+

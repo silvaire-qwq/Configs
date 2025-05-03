@@ -1,51 +1,38 @@
 require("conform").setup({
-	notify_on_error = false,
+	notify_on_error = true,
 	format_on_save = function(bufnr)
-		-- Disable with a global or buffer-local variable
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
-		-- Disable "format_on_save lsp_fallback" for languages that don't
-		-- have a well standardized coding style. You can add additional
-		-- languages here or re-enable it for the disabled ones.
-		local disable_filetypes = { c = true }
 		return {
-			timeout_ms = 500,
-			lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+			timeout_ms = 1000,
+			lsp_format = "fallback",
 		}
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
-		css = { "prettierd" },
 		cpp = { "clang-format" },
-		html = { "prettierd" },
 		python = { "yapf", "isort" },
 		sh = { "shfmt" },
 		snakemake = { "snakefmt" },
 		markdown = { "prettierd", "cbfmt" },
 		typst = { "typstyle" },
 		nix = { "nixfmt" },
-		yaml = { "prettierd" },
-		toml = { "prettierd" },
 		json = { "prettierd" },
-		javascript = { "prettierd" },
-		javascriptreact = { "prettierd" },
-		typescript = { "prettierd" },
-		vue = { "prettierd" },
+		toml = { "taplo" },
+		tex = { "tex-fmt" },
 	},
 	formatters = {
 		cbfmt = {
 			command = "cbfmt",
 			args = { "-w", "--config", vim.fn.expand("~") .. "/.config/cbfmt.toml", "$FILENAME" },
 		},
-		yapf = { command = "yapf" },
-		nix = { command = "nixfmt" },
+		taplo = { command = "taplo", args = { "fmt", "--option", "indent_tables=false", "-" } },
 	},
 })
 
-vim.api.nvim_create_user_command("FormatDisable", function(args)
+vim.api.nvim_create_user_command("ConformDisable", function(args)
 	if args.bang then
-		-- FormatDisable! will disable formatting just for this buffer
 		vim.b.disable_autoformat = true
 	else
 		vim.g.disable_autoformat = true
@@ -54,7 +41,7 @@ end, {
 	desc = "Disable autoformat-on-save",
 	bang = true,
 })
-vim.api.nvim_create_user_command("FormatEnable", function()
+vim.api.nvim_create_user_command("ConformEnable", function()
 	vim.b.disable_autoformat = false
 	vim.g.disable_autoformat = false
 end, {

@@ -32,11 +32,6 @@ source ~/.config/nushell/src/themes/starship.nu
 # │                    COMPLETIONS                      │
 # ╰─────────────────────────────────────────────────────╯
 
-# Git
-source ~/.config/nushell/src/completions/git.nu
-
-# Pacman
-source ~/.config/nushell/src/completions/pacman.nu
 
 # ╭─────────────────────────────────────────────────────╮
 # │                      CONFIGS                        │

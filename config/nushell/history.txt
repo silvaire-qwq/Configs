@@ -378,3 +378,138 @@ sudo chown -R $"($env.USER):($env.USER)" *
 ls
 clear
 ls
+cd ~/.config/nushell/
+ls
+sudo pacman -Syyuu
+pacman -Syyuu
+ls | where size > 10mb
+ls | where size > 1
+ls | where size
+ls | get name
+http
+http get
+curl
+curl https://openrouter.ai/api/v1/chat/completions \<\n>  -H "Content-Type: application/json" \<\n>  -H "Authorization: Bearer $OPENROUTER_API_KEY" \<\n>  -d '{<\n>  "model": "deepseek/deepseek-chat-v3-0324:free",<\n>  "messages": [<\n>    {<\n>      "role": "user",<\n>      "content": "What is the meaning of life?"<\n>    }<\n>  ]<\n>  <\n>}'
+bash -c "curl https://openrouter.ai/api/v1/chat/completions \<\n>  -H "Content-Type: application/json" \<\n>  -H "Authorization: Bearer $OPENROUTER_API_KEY" \<\n>  -d '{<\n>  "model": "deepseek/deepseek-chat-v3-0324:free",<\n>  "messages": [<\n>    {<\n>      "role": "user",<\n>      "content": "What is the meaning of life?"<\n>    }<\n>  ]<\n>  <\n>}'"
+bash -c 'curl https://openrouter.ai/api/v1/chat/completions \<\n>  -H "Content-Type: application/json" \<\n>  -H "Authorization: Bearer $OPENROUTER_API_KEY" \<\n>  -d '{<\n>  "model": "deepseek/deepseek-chat-v3-0324:free",<\n>  "messages": [<\n>    {<\n>      "role": "user",<\n>      "content": "What is the meaning of life?"<\n>    }<\n>  ]<\n>  <\n>}''
+http get https://openrouter.ai/api/v1/chat/completions \<\n>  -H "Content-Type: application/json" \<\n>  -H "Authorization: Bearer $OPENROUTER_API_KEY" \<\n>  -d '{<\n>  "model": "deepseek/deepseek-chat-v3-0324:free",<\n>  "messages": [<\n>    {<\n>      "role": "user",<\n>      "content": "What is the meaning of life?"<\n>    }<\n>  ]<\n>  <\n>}'
+ls
+ls | where Download
+ls | where =~ Download
+ls | where = Download
+ls | where$it  = Download
+ls | where $it  = Download
+ls | where name  = Download
+ls | find Downloaed\
+ls | find Download
+$env.PATH
+cd ~/.config/nushell/
+ls
+sudo nvim config.nu
+def greet [name] {<\n>  echo "hello" $name<\n>}
+greet "world"
+alias lt = (ls | sort-by modified -r | sort-by type)
+lt
+alias lt = (ls | sort-by modified -r | sort-by type)
+alias lsname = (ls | get name)
+open editors/vscode/package.json
+open ~/Codespace/Posts/src/configs/config.json
+open ~/Codespace/Posts/src/configs/config.json | get title
+ks
+ls
+cd ~/Workdir/
+ls
+sudo nvim people.txt
+open people.txt | lines
+open people.txt | lines | split 
+open people.txt | lines | split column "|"
+open people.txt | lines | split column "|" | str trim
+sudo nvim ~/.config/starship.toml
+ls
+ll
+la
+ls
+ls --help
+set
+clear
+ls
+sudo ip addr
+sshd -t
+sudo nvim /etc/ssh/sshd_config
+sudo nvim /etc/ssh/sshd_config.d/20-systemd-userdb.conf
+sshd -t
+sudo ip addr
+pkill sshd
+sudo sshd -t
+sudo nvim /etc/ssh/sshd_config
+sudo sshd -t
+sudo nvim /etc/ssh/sshd_config
+cd Workdir/
+ls
+sudo qemu-img create -f qcow2 debian-sandbox.qcow2 1g
+sudo pacman -S qemu qemu-img
+sudo pacman -S qemu qemu-img --overwrite=\*
+sudo qemu-img create -f qcow2 debian-sandbox.qcow2 1g
+sudo modprobe nbd
+sudo nvim /etc/modprobe.d/
+sudo qemu-nbd -f qcow2 -c /dev/nbd0 debian-sandbox.qcow2
+sudo cfdisk /dev/nbd0
+sudo mkfs.ext4 /dev/nbd0
+ls
+sudo mount /dev/nbd0 /mnt
+sudo cp -r debian-sandbox.tar.xz /mnt
+cd /mnt
+ls
+sudo rm -rf lost+found/
+ls
+sudo tar xpvf debian-sandbox.tar.xz
+ls
+sudo rm -rf *
+ls
+cd ..
+ls
+cd ~/Workdir/
+ls
+s# use prompt indicators from starship<\n>$env.PROMPT_INDICATOR = ""<\n>$env.PROMPT_INDICATOR_VI_INSERT = ""<\n>$env.PROMPT_INDICATOR_VI_NORMAL = ""<\n>$env.PROMPT_MULTILINE_INDICATOR = ""<\n><\n>let carapace_completer = {|spans: list<string>|<\n>  if (which carapace | is-empty) { return }<\n><\n>  ^carapace $spans.0 nushell ...$spans<\n>  | from json<\n>  | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }<\n>}<\n><\n>let nix_completer = {|spans: list<string>|<\n>  if (which nix | is-empty) { return }<\n><\n>  let current_arg = $spans | length| $in - 1<\n>  with-env { NIX_GET_COMPLETIONS: $current_arg } { $spans| skip 1| ^nix ...$in }<\n>  | lines<\n>  | skip 1<\n>  | parse "{value}\t{description}"<\n>}<\n><\n>let pwsh_completer = {|spans: list<string>|<\n>  if (which pwsh | is-empty) { return }<\n><\n>  let token = $spans | str join " " | str replace -r "pwsh -(c|Command) " ""<\n>  let cursorColumn = $token | str length<\n><\n>  ^pwsh -c $"[System.Management.Automation.CommandCompletion]::CompleteInput\(\"($token)\", ($cursorColumn), $null).CompletionMatches | Select-Object CompletionText,ToolTip | ConvertTo-Json"<\n>  | from json | default [] | each {|el| {<\n>    value: $el.CompletionText,<\n>    description: $el.ToolTip<\n>  }}<\n>}<\n><\n>let zoxide_completer = {|spans: list<string>|<\n>  if (which zoxide | is-empty ) { return }<\n><\n>  $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}<\n>}<\n><\n>def nix-gc-roots [] {<\n>  ^nix-store --gc --print-roots<\n>  | parse -r "(\/\\S+) -> (\/\\S+)"<\n>  | rename path store-path<\n>  | sort-by path<\n>}<\n><\n>let external_completer = {|spans: list<string>|<\n>  let expanded_alias = scope aliases<\n>  | where name == $spans.0<\n>  | get -i 0.expansion<\n><\n>  let spans = if $expanded_alias != null {<\n>    $spans<\n>    | skip 1<\n>    | prepend ($expanded_alias | split row ' ' | take 1)<\n>  } else {<\n>    $spans<\n>  }<\n><\n>  match $spans.0 {<\n>    "nix" => $nix_completer<\n>    "pwsh" => $pwsh_completer<\n>    "__zoxide_z" | "__zoxide_zi" => $zoxide_completer<\n>    _ => $carapace_completer<\n>  } | do $in $spans<\n>}<\n><\n>$env.config = {<\n>  show_banner: false<\n><\n>  ls: {<\n>    use_ls_colors: true<\n>    clickable_links: true<\n>  }<\n><\n>  rm: { always_trash: false }<\n><\n>  table: {<\n>    mode: "psql"<\n>    index_mode: "auto"<\n>    show_empty: true<\n>    padding: { left: 1, right: 1 }<\n>    trim: {<\n>      methodology: "wrapping"<\n>      truncating_suffix: "…"<\n>    }<\n>    header_on_separator: true<\n>    # limit data rows from top and bottom after reaching a set point<\n>    # abbreviated_row_count: 100<\n>  }<\n><\n>  error_style: "fancy"<\n><\n>  datetime_format: {<\n>    normal: "%Y-%m-%d %I:%M:%S%p"<\n>    table: "%Y-%m-%d %I:%M:%S%p"<\n>  }<\n><\n>  display_errors: {<\n>    exit_code: false<\n>    termination_signal: true<\n>  }<\n><\n>  explore: {<\n>    status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" }<\n>    command_bar_text: { fg: "#C4C9C6" }<\n>    highlight: { fg: "black", bg: "yellow" }<\n>    status: {<\n>      error: { fg: "white", bg: "red" }<\n>      warn: {}<\n>      info: {}<\n>    }<\n>    table: {<\n>      split_line: { fg: "#404040" }<\n>      selected_cell: { bg: "light_blue" }<\n>      selected_row: {}<\n>      selected_column: {}<\n>    }<\n>  }<\n><\n>  history: {<\n>    max_size: 100_000<\n>    sync_on_enter: true<\n>    file_format: "plaintext"<\n>    isolation: false<\n>  }<\n><\n>  completions: {<\n>    case_sensitive: false<\n>    quick: true<\n>    partial: true<\n>    algorithm: "prefix"<\n>    use_ls_colors: true<\n>    external: {<\n>      enable: true<\n>      max_results: 100<\n>      completer: $external_completer<\n>    }<\n>  }<\n><\n>  filesize: {<\n>    unit: binary<\n>    precision: 1<\n>  }<\n><\n>  cursor_shape: {<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)<\n>    emacs: "inherit"<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)<\n>    vi_insert: "inherit"<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)<\n>    vi_normal: "inherit"<\n>  }<\n><\n>  # always, never, number_of_rows, auto<\n>  footer_mode: 20<\n>  # the precision for displaying floats in tables<\n>  float_precision: 2<\n>  use_ansi_coloring: true<\n>  # enable bracketed paste, currently useless on windows<\n>  bracketed_paste: true<\n>  # emacs, vi<\n>  edit_mode: "vi"<\n>  # enables terminal shell integration. Off by default, as some terminals have issues with this.<\n>  shell_integration: {<\n>    # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title<\n>    osc2: true<\n>    # osc7 is a way to communicate the path to the terminal, this is helpful for spawning new tabs in the same directory<\n>    osc7: true<\n>    # osc8 is also implemented as the deprecated setting ls.show_clickable_links, it shows clickable links in ls output if your terminal supports it. show_clickable_links is deprecated in favor of osc8<\n>    osc8: true<\n>    # osc9_9 is from ConEmu and is starting to get wider support. It's similar to osc7 in that it communicates the path to the terminal<\n>    osc9_9: (not ([xterm-kitty xterm-ghostty] | any {|| $in == $env.TERM}))<\n>    # osc133 is several escapes invented by Final Term which include the supported ones below.<\n>    # 133;A - Mark prompt start<\n>    # 133;B - Mark prompt end<\n>    # 133;C - Mark pre-execution<\n>    # 133;D;exit - Mark execution finished with exit code<\n>    # This is used to enable terminals to know where the prompt is, the command is, where the command finishes, and where the output of the command is<\n>    osc133: true<\n>    # osc633 is closely related to osc133 but only exists in visual studio code (vscode) and supports their shell integration features<\n>    # 633;A - Mark prompt start<\n>    # 633;B - Mark prompt end<\n>    # 633;C - Mark pre-execution<\n>    # 633;D;exit - Mark execution finished with exit code<\n>    # 633;E - NOT IMPLEMENTED - Explicitly set the command line with an optional nonce<\n>    # 633;P;Cwd=<path> - Mark the current working directory and communicate it to the terminal<\n>    # and also helps with the run recent menu in vscode<\n>    osc633: true<\n>    # reset_application_mode is escape \x1b[?1l and was added to help ssh work better<\n>    reset_application_mode: true<\n>  }<\n><\n>  # true or false to enable or disable right prompt to be rendered on last line of the prompt.<\n>  render_right_prompt_on_last_line: false<\n>  # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.<\n>  use_kitty_protocol: (($env.TERM_PROGRAM? == "WezTerm") or ($env.TERM? == "xterm-kitty"))<\n>  # true enables highlighting of external commands in the repl resolved by which.<\n>  highlight_resolved_externals: false<\n>  # the maximum number of times nushell allows recursion before stopping it<\n>  recursion_limit: 50<\n><\n>  hooks: {<\n>    env_change: {<\n>      PWD: [<\n>        {if ((".git" | path exists) and not (which onefetch | is-empty)) {<\n>          onefetch --no-merges --no-bots --no-color-palette --text-colors 1 1 3 4 4<\n>          | complete<\n>          | get stdout<\n>        }}<\n>      ]<\n>    }<\n>    # run to display the output of a pipeline<\n>    display_output: "if (term size).columns >= 100 { table -e } else { table }"<\n>    # return an error message when a command is not found<\n>    command_not_found: { null }<\n>  }<\n>}
+# use prompt indicators from starship<\n>$env.PROMPT_INDICATOR = ""<\n>$env.PROMPT_INDICATOR_VI_INSERT = ""<\n>$env.PROMPT_INDICATOR_VI_NORMAL = ""<\n>$env.PROMPT_MULTILINE_INDICATOR = ""<\n><\n>let carapace_completer = {|spans: list<string>|<\n>  if (which carapace | is-empty) { return }<\n><\n>  ^carapace $spans.0 nushell ...$spans<\n>  | from json<\n>  | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }<\n>}<\n><\n>let nix_completer = {|spans: list<string>|<\n>  if (which nix | is-empty) { return }<\n><\n>  let current_arg = $spans | length| $in - 1<\n>  with-env { NIX_GET_COMPLETIONS: $current_arg } { $spans| skip 1| ^nix ...$in }<\n>  | lines<\n>  | skip 1<\n>  | parse "{value}\t{description}"<\n>}<\n><\n>let pwsh_completer = {|spans: list<string>|<\n>  if (which pwsh | is-empty) { return }<\n><\n>  let token = $spans | str join " " | str replace -r "pwsh -(c|Command) " ""<\n>  let cursorColumn = $token | str length<\n><\n>  ^pwsh -c $"[System.Management.Automation.CommandCompletion]::CompleteInput\(\"($token)\", ($cursorColumn), $null).CompletionMatches | Select-Object CompletionText,ToolTip | ConvertTo-Json"<\n>  | from json | default [] | each {|el| {<\n>    value: $el.CompletionText,<\n>    description: $el.ToolTip<\n>  }}<\n>}<\n><\n>let zoxide_completer = {|spans: list<string>|<\n>  if (which zoxide | is-empty ) { return }<\n><\n>  $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}<\n>}<\n><\n>def nix-gc-roots [] {<\n>  ^nix-store --gc --print-roots<\n>  | parse -r "(\/\\S+) -> (\/\\S+)"<\n>  | rename path store-path<\n>  | sort-by path<\n>}<\n><\n>let external_completer = {|spans: list<string>|<\n>  let expanded_alias = scope aliases<\n>  | where name == $spans.0<\n>  | get -i 0.expansion<\n><\n>  let spans = if $expanded_alias != null {<\n>    $spans<\n>    | skip 1<\n>    | prepend ($expanded_alias | split row ' ' | take 1)<\n>  } else {<\n>    $spans<\n>  }<\n><\n>  match $spans.0 {<\n>    "nix" => $nix_completer<\n>    "pwsh" => $pwsh_completer<\n>    "__zoxide_z" | "__zoxide_zi" => $zoxide_completer<\n>    _ => $carapace_completer<\n>  } | do $in $spans<\n>}<\n><\n>$env.config = {<\n>  show_banner: false<\n><\n>  ls: {<\n>    use_ls_colors: true<\n>    clickable_links: true<\n>  }<\n><\n>  rm: { always_trash: false }<\n><\n>  table: {<\n>    mode: "psql"<\n>    index_mode: "auto"<\n>    show_empty: true<\n>    padding: { left: 1, right: 1 }<\n>    trim: {<\n>      methodology: "wrapping"<\n>      truncating_suffix: "…"<\n>    }<\n>    header_on_separator: true<\n>    # limit data rows from top and bottom after reaching a set point<\n>    # abbreviated_row_count: 100<\n>  }<\n><\n>  error_style: "fancy"<\n><\n>  datetime_format: {<\n>    normal: "%Y-%m-%d %I:%M:%S%p"<\n>    table: "%Y-%m-%d %I:%M:%S%p"<\n>  }<\n><\n>  display_errors: {<\n>    exit_code: false<\n>    termination_signal: true<\n>  }<\n><\n>  explore: {<\n>    status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" }<\n>    command_bar_text: { fg: "#C4C9C6" }<\n>    highlight: { fg: "black", bg: "yellow" }<\n>    status: {<\n>      error: { fg: "white", bg: "red" }<\n>      warn: {}<\n>      info: {}<\n>    }<\n>    table: {<\n>      split_line: { fg: "#404040" }<\n>      selected_cell: { bg: "light_blue" }<\n>      selected_row: {}<\n>      selected_column: {}<\n>    }<\n>  }<\n><\n>  history: {<\n>    max_size: 100_000<\n>    sync_on_enter: true<\n>    file_format: "plaintext"<\n>    isolation: false<\n>  }<\n><\n>  completions: {<\n>    case_sensitive: false<\n>    quick: true<\n>    partial: true<\n>    algorithm: "prefix"<\n>    use_ls_colors: true<\n>    external: {<\n>      enable: true<\n>      max_results: 100<\n>      completer: $external_completer<\n>    }<\n>  }<\n><\n>  filesize: {<\n>    unit: binary<\n>    precision: 1<\n>  }<\n><\n>  cursor_shape: {<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)<\n>    emacs: "inherit"<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)<\n>    vi_insert: "inherit"<\n>    # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)<\n>    vi_normal: "inherit"<\n>  }<\n><\n>  # always, never, number_of_rows, auto<\n>  footer_mode: 20<\n>  # the precision for displaying floats in tables<\n>  float_precision: 2<\n>  use_ansi_coloring: true<\n>  # enable bracketed paste, currently useless on windows<\n>  bracketed_paste: true<\n>  # emacs, vi<\n>  edit_mode: "vi"<\n>  # enables terminal shell integration. Off by default, as some terminals have issues with this.<\n>  shell_integration: {<\n>    # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title<\n>    osc2: true<\n>    # osc7 is a way to communicate the path to the terminal, this is helpful for spawning new tabs in the same directory<\n>    osc7: true<\n>    # osc8 is also implemented as the deprecated setting ls.show_clickable_links, it shows clickable links in ls output if your terminal supports it. show_clickable_links is deprecated in favor of osc8<\n>    osc8: true<\n>    # osc9_9 is from ConEmu and is starting to get wider support. It's similar to osc7 in that it communicates the path to the terminal<\n>    osc9_9: (not ([xterm-kitty xterm-ghostty] | any {|| $in == $env.TERM}))<\n>    # osc133 is several escapes invented by Final Term which include the supported ones below.<\n>    # 133;A - Mark prompt start<\n>    # 133;B - Mark prompt end<\n>    # 133;C - Mark pre-execution<\n>    # 133;D;exit - Mark execution finished with exit code<\n>    # This is used to enable terminals to know where the prompt is, the command is, where the command finishes, and where the output of the command is<\n>    osc133: true<\n>    # osc633 is closely related to osc133 but only exists in visual studio code (vscode) and supports their shell integration features<\n>    # 633;A - Mark prompt start<\n>    # 633;B - Mark prompt end<\n>    # 633;C - Mark pre-execution<\n>    # 633;D;exit - Mark execution finished with exit code<\n>    # 633;E - NOT IMPLEMENTED - Explicitly set the command line with an optional nonce<\n>    # 633;P;Cwd=<path> - Mark the current working directory and communicate it to the terminal<\n>    # and also helps with the run recent menu in vscode<\n>    osc633: true<\n>    # reset_application_mode is escape \x1b[?1l and was added to help ssh work better<\n>    reset_application_mode: true<\n>  }<\n><\n>  # true or false to enable or disable right prompt to be rendered on last line of the prompt.<\n>  render_right_prompt_on_last_line: false<\n>  # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.<\n>  use_kitty_protocol: (($env.TERM_PROGRAM? == "WezTerm") or ($env.TERM? == "xterm-kitty"))<\n>  # true enables highlighting of external commands in the repl resolved by which.<\n>  highlight_resolved_externals: false<\n>  # the maximum number of times nushell allows recursion before stopping it<\n>  recursion_limit: 50<\n><\n>  hooks: {<\n>    env_change: {<\n>      PWD: [<\n>        {if ((".git" | path exists) and not (which onefetch | is-empty)) {<\n>          onefetch --no-merges --no-bots --no-color-palette --text-colors 1 1 3 4 4<\n>          | complete<\n>          | get stdout<\n>        }}<\n>      ]<\n>    }<\n>    # run to display the output of a pipeline<\n>    display_output: "if (term size).columns >= 100 { table -e } else { table }"<\n>    # return an error message when a command is not found<\n>    command_not_found: { null }<\n>  }<\n>}
+sudo
+sudo nvim ~/.config/starship.toml
+ls
+sudo nvim ~/.config/starship.toml
+ls
+sudo nvim ~/.config/starship.toml
+ls
+sudo nvim ~/.config/starship.toml
+ls
+clear
+ls
+whoami
+ls
+cd ..
+ls
+cd ..
+ls
+cd Workdir/
+ls
+cd ..
+ls
+sudo nvim ~/.config/starship.toml
+ls
+sudo pacman -Syyuu
+clear
+whoami
+ls
+>>
+ls
+s
+nu
+ls
+sudo nvim ~/.config/nushell/src/themes/catppuccin-mocha.nu
+cd ~/.config/nushell/
+ls
+clear
+sudo pacman -Syyuu
+ls
+clear
+whoami
+ls

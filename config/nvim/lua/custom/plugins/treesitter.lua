@@ -1,7 +1,7 @@
-return { -- Highlight, edit, and navigate code
-  'nvim-treesitter/nvim-treesitter',
+return {
+  'patricorgi/nvim-treesitter',
   build = ':TSUpdate',
-  event = 'VeryLazy',
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     require 'custom.config.treesitter'
   end,
