@@ -10,5 +10,5 @@ if [[ $(grep -c "empty" /home/arch/Pictures/Screenshots/$scrd.check) -eq "1" ]];
 else
 	notify-send "屏幕截图" "已复制到剪贴板并保存。"
 	sudo rm -rf /home/arch/Pictures/Screenshots/$scrd.check
-	imv /home/arch/Pictures/Screenshots/$scrd.png
+	# imv /home/arch/Pictures/Screenshots/$scrd.png
 fi

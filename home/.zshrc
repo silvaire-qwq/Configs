@@ -6,6 +6,9 @@
 
 local PLUGINS_FROM_OMZ=(
     git
+    thefuck
+    starship
+    zoxide
 )
 
 local LIB_FROM_OMZ=(
@@ -33,7 +36,7 @@ local LIGHT=(
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     ael-code/zsh-colored-man-pages
-    silvaire-qwq/arch-command-not-found
+    zerospaces/arch-command-not-found
     # Aloxaf/fzf-tab
 )
 
@@ -220,15 +223,6 @@ omz_urlencode(){}
 . /etc/environment
 . /etc/locale.conf
 
-# Zoxide Init
-eval "$(zoxide init zsh)"
-
-# Fxxk Init
-eval "$(thefuck --alias)"
-
-# Starship Init
-eval "$(starship init zsh)"
-
 # Atuin init
 eval "$(atuin init zsh)"
 
@@ -285,7 +279,7 @@ if [[ -x $(command -v eza) ]]; then
     alias 'll'="eza -lha $EZA_DEFAULT_OPTS"
 fi
 
-[[ ! -x $(command -v z) ]] || alias "cd"="z"
+[[ ! -x $(command -v zoxide) ]] || alias "cd"="z"
 [[ ! -d ~/.config/hypr ]] || alias 'hypr'='cd ~/.config/hypr'
 [[ ! -x $(command -v cava) ]] || alias 'c'='cava'
 

@@ -45,6 +45,5 @@ How can I use this dotfiles manager?
 | oh-my-posh    |              |             |
 | rofi          |              |             |
 | wezterm       |              |             |
-| waybar        |              |             |
 | starship.toml |              |             |
 | nushell       |              |             |

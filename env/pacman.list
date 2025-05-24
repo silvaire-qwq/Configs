@@ -8,7 +8,9 @@ acl
 acpi
 ada
 adobe-source-code-pro-fonts
+adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-kr-fonts
+adobe-source-han-serif-cn-fonts
 adw-gtk-theme-git
 adwaita-cursors
 adwaita-fonts
@@ -24,6 +26,7 @@ alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
 alsa-utils
+amule
 android-tools
 android-udev
 aom
@@ -163,6 +166,7 @@ cpupower
 cracklib
 cronie
 crunch
+crypto++
 cryptsetup
 cups-pk-helper
 curl
@@ -227,6 +231,8 @@ dxvk-bin
 e2fsprogs
 ebook-tools
 edex-ui-git
+edit
+edit-debug
 editline
 editorconfig-core-c
 edk2-aarch64
@@ -244,6 +250,7 @@ electron32
 electron33
 electron34
 electron35
+electron36
 elementary-icon-theme
 elinks
 ell
@@ -277,6 +284,7 @@ fcitx5-gtk
 fcitx5-lua
 fcitx5-material-color
 fcitx5-pinyin-moegirl
+fcitx5-pinyin-sougou-dict-git
 fcitx5-qt
 fcitx5-rime
 fd
@@ -330,6 +338,8 @@ gendesk
 geoclue
 geocode-glib-2
 geocode-glib-common
+geoip
+geoip-database
 gettext
 gflags
 ghc-libs
@@ -354,6 +364,7 @@ glow
 glslang
 glu
 glusterfs
+gmime3
 gmp
 gn
 gnome-autoar
@@ -378,8 +389,9 @@ gnulib-l10n
 gnupg
 gnutls
 go
-go-musicfox-bin
 go-musicfox-bin-debug
+go-musicfox-git
+go-musicfox-git-debug
 go-tools
 gobject-introspection
 gobject-introspection-runtime
@@ -674,6 +686,7 @@ helix
 hicolor-icon-theme
 hidapi
 highway
+himalaya
 hiredis
 hmcl
 hping
@@ -1504,6 +1517,8 @@ nmap
 node-gyp
 nodejs
 nodejs-nopt
+notmuch
+notmuch-runtime
 noto-fonts
 npm
 npth
@@ -1536,6 +1551,7 @@ opencc-doc
 opencl-headers
 opencolorio
 opencore-amr
+opendesktop-fonts
 opendoas
 openexr
 openh264
@@ -1898,6 +1914,7 @@ qemu-hw-display-virtio-gpu-pci-gl
 qemu-hw-display-virtio-vga
 qemu-hw-display-virtio-vga-gl
 qemu-hw-s390x-virtio-gpu-ccw
+qemu-hw-uefi-vars
 qemu-hw-usb-host
 qemu-hw-usb-redirect
 qemu-hw-usb-smartcard
@@ -2121,6 +2138,7 @@ semver
 sequoia-sqv
 serd
 serf
+sfsexp
 shaderc
 shadow
 shared-mime-info
@@ -2226,6 +2244,8 @@ tree-sitter-vimdoc
 tslib
 ttf-0xproto-nerd
 ttf-apple-emoji
+ttf-arphic-ukai
+ttf-arphic-uming
 ttf-carlito
 ttf-cascadia-code
 ttf-cascadia-code-nerd
@@ -2234,6 +2254,7 @@ ttf-dejavu
 ttf-firacode-nerd
 ttf-gabarito-git
 ttf-hack
+ttf-hannom
 ttf-ibm-plex
 ttf-iosevka-nerd
 ttf-jetbrains-mono-nerd
@@ -2259,6 +2280,7 @@ udisks2
 unibilium
 unicode-cldr
 unicode-cldr-annotations
+unixodbc
 unzip
 update-grub
 upower
@@ -2326,6 +2348,9 @@ which
 whois
 wildmidi
 wimlib
+wine-mono
+wine-wow64
+winetricks
 wireless_tools
 wireplumber
 wl-clipboard
@@ -2339,9 +2364,16 @@ wofi
 wolfssl
 wpa_supplicant
 wpebackend-fdo
+wqy-bitmapfont
+wqy-microhei
+wqy-microhei-lite
+wqy-zenhei
 wvkbd
+wxwidgets-common
+wxwidgets-gtk3
 x264
 x265
+xapian-core
 xapp
 xcb-imdkit-git
 xcb-proto

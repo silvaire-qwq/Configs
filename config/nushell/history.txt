@@ -513,3 +513,6 @@ ls
 clear
 whoami
 ls
+clear
+whoami
+sudo pacman -Syyuu
