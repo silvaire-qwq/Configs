@@ -516,3 +516,8 @@ ls
 clear
 whoami
 sudo pacman -Syyuu
+clear
+ls
+clear && ls
+clear
+ls

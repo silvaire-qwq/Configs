@@ -98,6 +98,7 @@ blueberry
 blueprint-compiler
 bluez
 bluez-libs
+bluez-obex
 bluez-tools
 bluez-utils
 bolt
@@ -204,6 +205,7 @@ dnssec-anchors
 docbook-xml
 docbook-xsl
 docker
+docker-compose
 dos2unix
 dosfstools
 dotnet-host-bin
@@ -342,6 +344,7 @@ geoip
 geoip-database
 gettext
 gflags
+gfxstream
 ghc-libs
 ghostscript
 ghostty-shell-integration
@@ -360,6 +363,7 @@ glib2-docs
 glibc
 glibmm
 glibmm-2.68
+glm
 glow
 glslang
 glu
@@ -404,6 +408,7 @@ gotz-bin-debug
 gperf
 gperftools
 gpgme
+gpgmepp
 gpm
 graphene
 graphite
@@ -413,6 +418,7 @@ grim
 groff
 grpc
 grub
+grub-btrfs
 gsettings-desktop-schemas
 gsettings-qt
 gsettings-system-schemas
@@ -631,6 +637,7 @@ haskell-strict
 haskell-syb
 haskell-tagged
 haskell-tagsoup
+haskell-tasty
 haskell-temporary
 haskell-texmath
 haskell-text-conversions
@@ -742,6 +749,7 @@ imlib2
 imv
 inetutils
 iniparser
+inotify-tools
 intel-oneapi-common
 intel-oneapi-compiler-dpcpp-cpp-runtime-libs
 intel-oneapi-compiler-shared-runtime-libs
@@ -1007,6 +1015,7 @@ libaccounts-glib
 libaccounts-qt
 libadwaita
 libaec
+libaemu
 libaio
 libao
 libappimage
@@ -1395,6 +1404,7 @@ links
 linux-api-headers
 linux-firmware
 linux-firmware-whence
+linux-xanmod-lts-linux-bin-x64v3
 linuxqq
 lld
 llhttp
@@ -1428,6 +1438,7 @@ m17n-db
 m17n-lib
 m4
 mailcap
+maim
 make
 mako
 man-db
@@ -1664,6 +1675,7 @@ plasma-workspace
 plasma-workspace-wallpapers
 plasma5support
 playerctl
+pm2
 pnpm
 po4a
 pokemonsay-newgenerations-git
@@ -1911,8 +1923,11 @@ qemu-hw-display-virtio-gpu
 qemu-hw-display-virtio-gpu-gl
 qemu-hw-display-virtio-gpu-pci
 qemu-hw-display-virtio-gpu-pci-gl
+qemu-hw-display-virtio-gpu-pci-rutabaga
+qemu-hw-display-virtio-gpu-rutabaga
 qemu-hw-display-virtio-vga
 qemu-hw-display-virtio-vga-gl
+qemu-hw-display-virtio-vga-rutabaga
 qemu-hw-s390x-virtio-gpu-ccw
 qemu-hw-uefi-vars
 qemu-hw-usb-host
@@ -2117,6 +2132,7 @@ run-parts
 runc
 rust-std-nightly-x86_64-unknown-linux-gnu
 rustup
+rutabaga-ffi
 s2n-tls
 samba
 sane
@@ -2152,6 +2168,7 @@ signond
 simdjson
 skim
 slang
+slop
 slurp
 smartmontools
 smbclient
@@ -2222,6 +2239,7 @@ thefuck
 thin-provisioning-tools
 time
 timeshift
+timeshift-autosnap
 tinysparql
 tinyxml2
 tmux
@@ -2356,8 +2374,8 @@ wireplumber
 wl-clipboard
 wlogout
 wlogout-debug
-wlroots
 wlroots-hidpi-xprop-git
+wlroots0.18
 wmctrl
 woff2
 wofi

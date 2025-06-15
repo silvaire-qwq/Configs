@@ -7,7 +7,7 @@
 
 | ITEMS  | VALUES                               |
 | ------ | ------------------------------------ |
-| Kernel | 6.12.7-rt-x64v3-xanmod1                          |
+| Kernel | 6.12.32-x64v3-xanmod1                          |
 | System | Arch Linux |
 | CPU    | 12th Gen Intel(R) Core(TM) i3-1215U                            |
 | GPU    | Intel Corporation Alder Lake-UP3 GT1 [UHD Graphics] (rev 0c) |
