@@ -60,6 +60,7 @@ audit
 aura
 aura-debug
 aurman
+aurorae
 autoconf
 autoconf-archive
 automake
@@ -157,6 +158,7 @@ colord-gtk4
 compiler-rt
 composefs
 compsize
+conky
 containerd
 convertlit
 coreutils
@@ -1381,6 +1383,7 @@ libxklavier
 libxml2
 libxmlb
 libxmu
+libxnvctrl
 libxpm
 libxpresent
 libxrandr
@@ -1403,6 +1406,15 @@ lilv
 links
 linux-api-headers
 linux-firmware
+linux-firmware-amdgpu
+linux-firmware-atheros
+linux-firmware-broadcom
+linux-firmware-intel
+linux-firmware-mediatek
+linux-firmware-nvidia
+linux-firmware-other
+linux-firmware-radeon
+linux-firmware-realtek
 linux-firmware-whence
 linux-xanmod-lts-linux-bin-x64v3
 linuxqq

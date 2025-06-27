@@ -521,3 +521,11 @@ ls
 clear && ls
 clear
 ls
+neofetch
+neofetch 
+clear
+neofetch 
+ls
+clear
+nu -v
+clear
