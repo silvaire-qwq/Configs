@@ -25,8 +25,7 @@ local LIB_FROM_OMZ=(
     directories
 )
 
-local SNIPPET=(
-)
+local SNIPPET=()
 
 local LIGHT=(
     zdharma-continuum/history-search-multi-word
@@ -37,6 +36,7 @@ local LIGHT=(
     zsh-users/zsh-history-substring-search
     ael-code/zsh-colored-man-pages
     zerospaces/arch-command-not-found
+    # z-shell/zsh-fancy-completions
     # Aloxaf/fzf-tab
 )
 
