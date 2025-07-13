@@ -529,3 +529,4 @@ ls
 clear
 nu -v
 clear
+ls

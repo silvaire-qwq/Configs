@@ -227,7 +227,7 @@ omz_urlencode(){}
 eval "$(atuin init zsh)"
 
 # LS_COLORS init
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
+# export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
 # hide EOL sign ('%')
 export PROMPT_EOL_MARK=""
@@ -272,12 +272,12 @@ if [[ -f ~/.config/wezterm/wezterm.lua ]]; then
     alias 'weztermrc'='sudo nvim ~/.config/wezterm/wezterm.lua'
 fi
 
-if [[ -x $(command -v eza) ]]; then
-    alias 'l'="eza -lha $EZA_DEFAULT_OPTS"
-    alias 'ls'="eza -lh $EZA_DEFAULT_OPTS"
-    alias 'la'="eza -lha $EZA_DEFAULT_OPTS"
-    alias 'll'="eza -lha $EZA_DEFAULT_OPTS"
-fi
+# if [[ -x $(command -v eza) ]]; then
+    # alias 'l'="eza -lha $EZA_DEFAULT_OPTS"
+    # alias 'ls'="eza -lh $EZA_DEFAULT_OPTS"
+    # alias 'la'="eza -lha $EZA_DEFAULT_OPTS"
+    # alias 'll'="eza -lha $EZA_DEFAULT_OPTS"
+# fi
 
 [[ ! -x $(command -v zoxide) ]] || alias "cd"="z"
 [[ ! -d ~/.config/hypr ]] || alias 'hypr'='cd ~/.config/hypr'
@@ -290,3 +290,10 @@ if [[ 1 -eq 1 ]]; then
     alias 'please'='sudo'
 fi
 
+if [[ $(command -v nu) ]]; then
+    unalias {ls,la,l,ll}
+    function ls(){ nu -c 'source ~/.config/nushell/config.nu; ls '"$@" }
+    function la(){ nu -c 'source ~/.config/nushell/config.nu; ls -a '"$@" }
+    function l(){ nu -c 'source ~/.config/nushell/config.nu; ls -a '"$@" }
+    function ll(){ nu -c 'source ~/.config/nushell/config.nu; ls -a '"$@" }
+fi

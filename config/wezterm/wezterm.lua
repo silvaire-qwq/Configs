@@ -28,6 +28,8 @@ return {
 	cell_width = 0.9,
 	adjust_window_size_when_changing_font_size = false,
 	enable_wayland = true,
+	enable_kitty_keyboard = true,
+	enable_kitty_graphics = true,
 	freetype_load_flags = "NO_HINTING|NO_AUTOHINT",
 	color_scheme = "Catppuccin Mocha",
 	use_fancy_tab_bar = false,

@@ -2,4 +2,4 @@
 
 sudo pkill fcitx5
 fcitx5-remote -r
-fcitx5 -d --replace
+fcitx5 --replace
