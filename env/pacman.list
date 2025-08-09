@@ -21,11 +21,13 @@ alembic
 alhp-keyring
 alhp-mirrorlist
 alsa-card-profiles
+alsa-firmware
 alsa-lib
 alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
 alsa-utils
+amd-ucode
 amule
 android-tools
 android-udev
@@ -40,6 +42,7 @@ appstream-qt
 apr
 apr-util
 aquamarine-git
+arandr
 arch-install-scripts
 arch-wiki-docs-zh-cn
 archiso
@@ -168,6 +171,7 @@ coreutils
 cowsay
 cpio
 cppdap
+cpu-x
 cpupower
 cracklib
 cronie
@@ -758,6 +762,9 @@ imv
 inetutils
 iniparser
 inotify-tools
+intel-gmmlib
+intel-gpu-tools
+intel-media-driver
 intel-oneapi-common
 intel-oneapi-compiler-dpcpp-cpp-runtime-libs
 intel-oneapi-compiler-shared-runtime-libs
@@ -1015,7 +1022,9 @@ lib32-util-linux
 lib32-v4l-utils
 lib32-vkd3d
 lib32-vulkan-icd-loader
+lib32-vulkan-intel
 lib32-wayland
+lib32-xcb-util-keysyms
 lib32-xz
 lib32-zlib
 lib32-zstd
@@ -1278,6 +1287,7 @@ libpng
 libportal
 libportal-gtk3
 libportal-gtk4
+libprocps
 libproxy
 libpsl
 libpulse
@@ -1350,6 +1360,7 @@ libutempter
 libutf8proc
 libuv
 libva
+libva-utils
 libvdpau
 libverto
 libvips
@@ -1488,6 +1499,7 @@ mingw-w64-crt
 mingw-w64-gcc
 mingw-w64-headers
 mingw-w64-winpthreads
+miniupnpc
 minizip
 minizip-ng
 mkcert
@@ -1636,6 +1648,7 @@ pciutils
 pcre
 pcre2
 pcsclite
+peg
 perl
 perl-clone
 perl-data-dump
@@ -2229,6 +2242,8 @@ startup-notification
 stow
 subversion
 sudo
+sunshine-bin
+sunshine-bin-debug
 superfile-bin
 svt-av1
 swappy
@@ -2366,6 +2381,7 @@ vlc-cli
 vlc-gui-qt
 vlc-plugin-a52dec
 vlc-plugin-alsa
+vlc-plugin-archive
 vlc-plugin-dav1d
 vlc-plugin-dbus
 vlc-plugin-dbus-screensaver
@@ -2377,6 +2393,7 @@ vlc-plugin-journal
 vlc-plugin-jpeg
 vlc-plugin-lua
 vlc-plugin-mpg123
+vlc-plugin-ogg
 vlc-plugin-opus
 vlc-plugin-png
 vlc-plugin-pulse
@@ -2429,6 +2446,7 @@ wireplumber
 wl-clipboard
 wlogout
 wlogout-debug
+wlr-randr
 wlroots-hidpi-xprop-git
 wlroots0.18
 wmctrl
@@ -2473,6 +2491,9 @@ xdotool
 xf86-input-libinput
 xf86-input-synaptics
 xf86-input-vmmouse
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-fbdev
 xf86-video-intel
 xf86-video-vesa
 xfsprogs

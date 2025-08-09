@@ -9,9 +9,9 @@
 | ------ | ------------------------------------ |
 | Kernel | 6.12.32-x64v3-xanmod1                          |
 | System | Arch Linux |
-| CPU    | 12th Gen Intel(R) Core(TM) i3-1215U                            |
-| GPU    | Intel Corporation Alder Lake-UP3 GT1 [UHD Graphics] (rev 0c) |
-| Memory | 7.44 GB                         |
+| CPU    | 12th Gen Intel(R) Core(TM) i5-1235U                            |
+| GPU    | Intel Corporation Alder Lake-UP3 GT2 [Iris Xe Graphics] (rev 0c) |
+| Memory | 15.32 GB                         |
 
 
 
