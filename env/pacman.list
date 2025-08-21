@@ -1022,7 +1022,7 @@ lib32-util-linux
 lib32-v4l-utils
 lib32-vkd3d
 lib32-vulkan-icd-loader
-lib32-vulkan-intel
+lib32-vulkan-radeon
 lib32-wayland
 lib32-xcb-util-keysyms
 lib32-xz
@@ -2414,7 +2414,7 @@ vte-common
 vte3
 vulkan-headers
 vulkan-icd-loader
-vulkan-intel
+vulkan-radeon
 vulkan-tools
 w3m
 watt-toolkit-bin

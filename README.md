@@ -9,9 +9,9 @@
 | ------ | ------------------------------------ |
 | Kernel | 6.12.32-x64v3-xanmod1                          |
 | System | Arch Linux |
-| CPU    | 12th Gen Intel(R) Core(TM) i5-1235U                            |
-| GPU    | Intel Corporation Alder Lake-UP3 GT2 [Iris Xe Graphics] (rev 0c) |
-| Memory | 15.32 GB                         |
+| CPU    | AMD Ryzen 7 3800X 8-Core Processor                            |
+| GPU    | Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] (rev e7) |
+| Memory | 15.54 GB                         |
 
 
 
