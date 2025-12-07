@@ -32,6 +32,7 @@ amule
 android-tools
 android-udev
 aom
+app2unit
 apparmor
 appimage-installer-bin-debug
 appmenu-glib-translator-git
@@ -41,7 +42,7 @@ appstream-glib
 appstream-qt
 apr
 apr-util
-aquamarine-git
+aquamarine
 arandr
 arch-install-scripts
 arch-wiki-docs-zh-cn
@@ -60,6 +61,7 @@ attica
 attica5
 attr
 atuin
+aubio
 audit
 aura
 aura-debug
@@ -82,6 +84,7 @@ aws-c-sdkutils
 aws-checksums
 aws-crt-cpp
 aws-sdk-cpp-core
+aws-sdk-cpp-iam
 aws-sdk-cpp-s3
 axel
 ayatana-ido
@@ -103,6 +106,7 @@ blueberry
 blueprint-compiler
 bluetui
 bluez
+bluez-cups
 bluez-libs
 bluez-obex
 bluez-tools
@@ -127,6 +131,7 @@ ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
 cabextract
+caelestia-cli
 cairo
 cairomm
 cairomm-1.16
@@ -150,7 +155,8 @@ cifs-utils
 clang
 clash
 clash-geoip
-clash-meta
+clash-verge-rev-bin
+cli11
 cliphist
 cmake
 cmatrix
@@ -168,7 +174,6 @@ conky
 containerd
 convertlit
 coreutils
-cowsay
 cpio
 cppdap
 cpu-x
@@ -178,6 +183,10 @@ cronie
 crunch
 crypto++
 cryptsetup
+cups
+cups-browsed
+cups-filters
+cups-pdf
 cups-pk-helper
 curl
 cursor-bin
@@ -202,6 +211,7 @@ deepin-desktop-base
 default-cursors
 desktop-file-utils
 device-mapper
+dgop
 dialog
 diffutils
 ding-libs
@@ -209,6 +219,9 @@ direnv
 distro-info
 distro-info-data
 dkms
+dmg2img
+dms-shell-bin
+dms-shell-bin-debug
 dnsmasq
 dnssec-anchors
 docbook-xml
@@ -262,6 +275,8 @@ electron33
 electron34
 electron35
 electron36
+electron37
+electron38
 elementary-icon-theme
 elinks
 ell
@@ -273,6 +288,7 @@ enchant
 erofs-utils
 ethtool
 evillimiter
+evolution-data-server
 exempi
 exfat-utils
 exiv2
@@ -321,6 +337,8 @@ fluidsynth
 fmt
 fontconfig
 fontpreview
+foomatic-db
+foomatic-db-ppds
 foot
 fortune-mod
 frameworkintegration
@@ -352,10 +370,12 @@ geocode-glib-common
 geoip
 geoip-database
 gettext
+gexiv2
 gflags
 gfxstream
 ghc-libs
 ghostscript
+ghostty
 ghostty-shell-integration
 ghostty-terminfo
 giflib
@@ -377,6 +397,7 @@ glow
 glslang
 glu
 glusterfs
+glycin
 gmime3
 gmp
 gn
@@ -392,7 +413,6 @@ gnome-disk-utility
 gnome-font-viewer
 gnome-keybindings
 gnome-keyring
-gnome-mimeapps
 gnome-online-accounts
 gnome-session
 gnome-settings-daemon
@@ -406,9 +426,11 @@ go-musicfox-bin-debug
 go-musicfox-git
 go-musicfox-git-debug
 go-tools
+go-yq
 gobject-introspection
 gobject-introspection-runtime
 gobuster
+google-breakpad
 google-chrome
 google-glog
 gotop
@@ -422,6 +444,8 @@ gpgme
 gpgmepp
 gpm
 gpsd
+gpu-screen-recorder
+gpu-screen-recorder-debug
 graphene
 graphite
 graphviz
@@ -432,7 +456,7 @@ grpc
 grub
 grub-btrfs
 gsettings-desktop-schemas
-gsettings-qt
+gsettings-qt5
 gsettings-system-schemas
 gsfonts
 gsm
@@ -507,6 +531,7 @@ haskell-byteorder
 haskell-call-stack
 haskell-case-insensitive
 haskell-cassava
+haskell-cborg
 haskell-cereal
 haskell-citeproc
 haskell-cmdargs
@@ -522,6 +547,7 @@ haskell-contravariant
 haskell-cookie
 haskell-crypton
 haskell-crypton-connection
+haskell-crypton-socks
 haskell-crypton-x509
 haskell-crypton-x509-store
 haskell-crypton-x509-system
@@ -549,10 +575,12 @@ haskell-fgl
 haskell-file-embed
 haskell-foldable1-classes-compat
 haskell-generically
+haskell-generics-sop
 haskell-ghc-bignum-orphans
 haskell-glob
 haskell-gridtables
 haskell-haddock-library
+haskell-half
 haskell-hashable
 haskell-hourglass
 haskell-hslua
@@ -581,6 +609,7 @@ haskell-http2
 haskell-hunit
 haskell-indexed-traversable
 haskell-indexed-traversable-instances
+haskell-integer-conversion
 haskell-integer-logarithms
 haskell-iproute
 haskell-ipynb
@@ -597,7 +626,9 @@ haskell-mmorph
 haskell-monad-control
 haskell-mono-traversable
 haskell-network
+haskell-network-bsd
 haskell-network-byte-order
+haskell-network-control
 haskell-network-uri
 haskell-old-locale
 haskell-old-time
@@ -614,6 +645,8 @@ haskell-pandoc-types
 haskell-pem
 haskell-pretty-show
 haskell-prettyprinter
+haskell-prettyprinter-ansi-terminal
+haskell-prettyprinter-compat-ansi-wl-pprint
 haskell-primitive
 haskell-psqueues
 haskell-quickcheck
@@ -627,6 +660,7 @@ haskell-safe-exceptions
 haskell-scientific
 haskell-semialign
 haskell-semigroupoids
+haskell-serialise
 haskell-servant
 haskell-servant-server
 haskell-sha
@@ -654,6 +688,7 @@ haskell-temporary
 haskell-texmath
 haskell-text-conversions
 haskell-text-icu
+haskell-text-iso8601
 haskell-text-short
 haskell-th-abstraction
 haskell-th-compat
@@ -699,6 +734,7 @@ haskell-xml-types
 haskell-yaml
 haskell-zip-archive
 haskell-zlib
+haxe
 hdf5
 hdparm
 helix
@@ -718,21 +754,20 @@ hwdata
 hwloc
 hyfetch
 hyphen
-hyprcursor-git
-hyprgraphics-git
-hypridle
-hyprland-git
+hyprcursor
+hyprgraphics
+hyprland
 hyprland-git-debug
-hyprland-qt-support
-hyprland-qtutils
-hyprlang-git
-hyprlock
+hyprland-guiutils
+hyprlang
 hyprpicker
 hyprshot-git
-hyprutils-git
-hyprwayland-scanner
+hyprtoolkit
+hyprutils
+hyprwayland-scanner-git
 i2c-tools
 iana-etc
+ibus
 icoutils
 icu
 iftop
@@ -745,14 +780,11 @@ illogical-impulse-audio
 illogical-impulse-backlight
 illogical-impulse-basic
 illogical-impulse-bibata-modern-classic-bin
-illogical-impulse-fonts-themes
 illogical-impulse-gnome
 illogical-impulse-gtk
-illogical-impulse-hyprland
 illogical-impulse-microtex-git
 illogical-impulse-microtex-git-debug
 illogical-impulse-oneui4-icons-git
-illogical-impulse-portal
 illogical-impulse-python
 illogical-impulse-screencapture
 imagemagick
@@ -784,6 +816,8 @@ jansson
 jasper
 java-environment-common
 java-runtime-common
+java17-openjfx-bin
+java17-openjfx-bin-debug
 jbig2dec
 jbigkit
 jdk-openjdk
@@ -794,6 +828,7 @@ jmtpfs
 jq
 jre21-zulu-bin-debug
 js128
+js140
 json-c
 json-glib
 jsoncpp
@@ -869,6 +904,7 @@ kmix
 kmod
 kmscon
 knewstuff
+knighttime
 knotifications
 knotifications5
 knotifyconfig
@@ -937,26 +973,22 @@ lib32-fontconfig
 lib32-freetype2
 lib32-gcc-libs
 lib32-gettext
-lib32-glib2
 lib32-glibc
 lib32-gmp
 lib32-gnutls
-lib32-gst-plugins-base-libs
-lib32-gstreamer
-lib32-harfbuzz
 lib32-icu
 lib32-json-c
 lib32-keyutils
 lib32-krb5
 lib32-lcms2
 lib32-libcap
+lib32-libdisplay-info
 lib32-libdrm
 lib32-libelf
 lib32-libffi
 lib32-libgcrypt
 lib32-libglvnd
 lib32-libgpg-error
-lib32-libgudev
 lib32-libidn2
 lib32-libjpeg-turbo
 lib32-libjpeg6-turbo
@@ -1012,7 +1044,6 @@ lib32-openssl-1.1
 lib32-orc
 lib32-p11-kit
 lib32-pam
-lib32-pcre2
 lib32-sdl2-compat
 lib32-sdl3
 lib32-speex
@@ -1022,6 +1053,7 @@ lib32-util-linux
 lib32-v4l-utils
 lib32-vkd3d
 lib32-vulkan-icd-loader
+lib32-vulkan-mesa-implicit-layers
 lib32-vulkan-radeon
 lib32-wayland
 lib32-xcb-util-keysyms
@@ -1036,7 +1068,7 @@ libaemu
 libaio
 libao
 libappimage
-libappindicator-gtk3
+libappindicator
 libarchive
 libass
 libassuan
@@ -1091,6 +1123,7 @@ libblockdev-loop
 libblockdev-mdraid
 libblockdev-nvme
 libblockdev-part
+libblockdev-smart
 libblockdev-swap
 libbluray
 libbpf
@@ -1118,6 +1151,7 @@ libcpuid
 libcss
 libcue
 libcups
+libcupsfilters
 libdaemon
 libdatachannel
 libdatrie
@@ -1155,6 +1189,7 @@ libfdk-aac
 libffi
 libfontenc
 libfreeaptx
+libfyaml
 libgbinder
 libgccjit
 libgcrypt
@@ -1264,6 +1299,8 @@ libnma
 libnma-common
 libnma-gtk4
 libnotify
+libnsbmp
+libnsgif
 libnsl
 libnvme
 libogg
@@ -1278,6 +1315,7 @@ libpcap
 libpciaccess
 libpeas
 libpgm
+libphonenumber
 libpipeline
 libpipewire
 libplacebo
@@ -1287,6 +1325,7 @@ libpng
 libportal
 libportal-gtk3
 libportal-gtk4
+libppd
 libprocps
 libproxy
 libpsl
@@ -1336,6 +1375,7 @@ libsynctex
 libsysprof-capture
 libtar
 libtasn1
+libtatsu
 libteam
 libtermkey
 libthai
@@ -1439,7 +1479,7 @@ linux-firmware-other
 linux-firmware-radeon
 linux-firmware-realtek
 linux-firmware-whence
-linux-xanmod-lts-linux-bin-x64v3
+linux-xanmod-linux-bin-x64v3
 linuxqq
 lld
 llhttp
@@ -1480,6 +1520,7 @@ man-db
 maomaowm-git-debug
 mariadb-libs
 marisa
+mate-polkit
 materialx
 matugen-bin
 matugen-bin-debug
@@ -1493,13 +1534,13 @@ mesa-utils
 meson
 metasploit
 micro
+mihomo
 milou
 mingw-w64-binutils
 mingw-w64-crt
 mingw-w64-gcc
 mingw-w64-headers
 mingw-w64-winpthreads
-miniupnpc
 minizip
 minizip-ng
 mkcert
@@ -1509,6 +1550,8 @@ mkinitcpio-busybox
 mobile-broadband-provider-info
 modemmanager
 modemmanager-qt5
+mongodb
+mongosh
 mono
 motrix-bin
 motrix-bin-debug
@@ -1525,6 +1568,7 @@ mtools
 mtpfs
 mujs
 multipath-tools
+muparser
 musikcube-bin
 musikcube-bin-debug
 mutter
@@ -1537,6 +1581,7 @@ ncdu
 ncmpcpp
 ncurses
 ndctl
+neko
 neofetch
 neon
 neovide
@@ -1558,6 +1603,8 @@ nftables
 nghttp2
 nim
 ninja
+niri
+nix
 nix-busybox
 nlohmann-json
 nmap
@@ -1571,6 +1618,7 @@ npm
 npth
 nspr
 nss
+nss-mdns
 nsxiv
 ntfs-3g
 ntp
@@ -1643,6 +1691,7 @@ parted
 paru
 patch
 pavucontrol
+pavucontrol-qt
 pbzip2
 pciutils
 pcre
@@ -1715,7 +1764,6 @@ playerctl
 pm2
 pnpm
 po4a
-pokemonsay-newgenerations-git
 polkit
 polkit-gnome
 polkit-kde-agent
@@ -1730,6 +1778,7 @@ popt
 portaudio
 postgresql-libs
 potrace
+power-profiles-daemon
 powertop
 ppp
 pps-tools
@@ -1757,6 +1806,7 @@ pystring
 python
 python-annotated-types
 python-anyio
+python-anysqlite
 python-argcomplete
 python-attrs
 python-autocommand
@@ -1787,6 +1837,7 @@ python-distro
 python-docopt
 python-dotenv
 python-dulwich
+python-editables
 python-fastjsonschema
 python-feedparser
 python-filelock
@@ -1796,12 +1847,16 @@ python-gbinder
 python-gobject
 python-greenlet
 python-h11
+python-hatch
+python-hatch-vcs
+python-hatchling
 python-hishel
 python-html2text
 python-html5lib
 python-httpcore
 python-httplib2
 python-httpx
+python-hyperlink
 python-hypothesis
 python-id
 python-idna
@@ -1843,6 +1898,7 @@ python-numpy
 python-opengl
 python-ordered-set
 python-packaging
+python-pathspec
 python-pbr
 python-pbs-installer
 python-pdm
@@ -1863,6 +1919,7 @@ python-pyaudio
 python-pycparser
 python-pycryptodome
 python-pycryptodomex
+python-pycups
 python-pydantic
 python-pydantic-core
 python-pygments
@@ -1900,6 +1957,7 @@ python-screeninfo
 python-secretstorage
 python-setproctitle
 python-setuptools
+python-setuptools-scm
 python-sgmllib3k
 python-shellingham
 python-sip-pyqt4
@@ -1910,6 +1968,7 @@ python-sortedcontainers
 python-terminaltables
 python-toml
 python-tomli
+python-tomli-w
 python-tomlkit
 python-tqdm
 python-trove-classifiers
@@ -1922,6 +1981,7 @@ python-unearth
 python-url-normalize
 python-urllib3
 python-userpath
+python-uv
 python-validate-pyproject
 python-virtualenv
 python-wcwidth
@@ -1931,6 +1991,7 @@ python-wheel
 python-xmltodict
 python-yaml
 python-zipp
+python-zstandard
 python2
 qca-qt5
 qca-qt6
@@ -2015,9 +2076,12 @@ qemu-user
 qemu-vhost-user-gpu
 qemu-vmsr-helper
 qmltermwidget
+qoi
+qpdf
 qqc2-breeze-style
 qqc2-desktop-style
 qqc2-desktop-style5
+qrcodegencpp-cmake
 qrencode
 qt4
 qt5-3d
@@ -2101,6 +2165,9 @@ qt6-wayland
 qt6-webchannel
 qt6-webengine
 qt6-websockets
+qt6-webview
+qt6ct
+quickshell-git
 qutebrowser
 rav1e
 rdma-core
@@ -2205,6 +2272,7 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
+simde
 simdjson
 skim
 slang
@@ -2242,7 +2310,6 @@ startup-notification
 stow
 subversion
 sudo
-sunshine-bin
 sunshine-bin-debug
 superfile-bin
 svt-av1
@@ -2256,6 +2323,7 @@ syntax-highlighting
 syntax-highlighting5
 sysbench
 syslinux
+system-config-printer
 systemd
 systemd-boot-pacman-hook
 systemd-libs
@@ -2317,6 +2385,7 @@ ttf-hack
 ttf-hannom
 ttf-ibm-plex
 ttf-iosevka-nerd
+ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-maple-beta-nf-cn
@@ -2324,12 +2393,16 @@ ttf-maplemono-nf-cn
 ttf-material-symbols-variable-git
 ttf-monaco
 ttf-opensans
+ttf-outfit
 ttf-readex-pro
+ttf-roboto
 ttf-rubik-vf
 ttf-space-mono-nerd
 ttf-terminus-nerd
 ttf-victor-mono
 ttf-victor-mono-nerd
+ttf2woff
+ttf2woff-debug
 tty-clock
 tty-clock-debug
 twolame
@@ -2414,10 +2487,10 @@ vte-common
 vte3
 vulkan-headers
 vulkan-icd-loader
+vulkan-mesa-implicit-layers
 vulkan-radeon
 vulkan-tools
 w3m
-watt-toolkit-bin
 wavpack
 waybar
 waybar-git-debug
@@ -2435,6 +2508,8 @@ wf-recorder
 wget
 wget2-git
 which
+whisker-shell-git
+whisker-shell-git-debug
 whois
 wildmidi
 wimlib
@@ -2449,6 +2524,7 @@ wlogout-debug
 wlr-randr
 wlroots-hidpi-xprop-git
 wlroots0.18
+wlsunset
 wmctrl
 woff2
 wofi
@@ -2555,6 +2631,7 @@ xorg-xwud
 xorgproto
 xsettingsd
 xvidcore
+xwayland-satellite
 xxhash
 xz
 yad
@@ -2563,7 +2640,6 @@ yaml-cpp
 yarn
 yay
 ydotool
-yq
 yyjson
 zed
 zellij

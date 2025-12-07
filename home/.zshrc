@@ -35,7 +35,7 @@ local LIGHT=(
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     ael-code/zsh-colored-man-pages
-    zerospaces/arch-command-not-found
+    # zerospaces/arch-command-not-found
     # z-shell/zsh-fancy-completions
     # Aloxaf/fzf-tab
 )
@@ -75,7 +75,7 @@ local OPTIONS=(
     'HIST_NO_FUNCTIONS'
     'HIST_REDUCE_BLANKS'
     'INC_APPEND_HISTORY_TIME'
-    # 'CORRECT'
+    'CORRECT'
     'INTERACTIVE_COMMENTS'
     'CHECK_JOBS'
     'CHECK_RUNNING_JOBS'
@@ -297,3 +297,11 @@ if [[ $(command -v nu) ]]; then
     function l(){ nu -c 'source ~/.config/nushell/config.nu; ls -a '"$@" }
     function ll(){ nu -c 'source ~/.config/nushell/config.nu; ls -a '"$@" }
 fi
+
+# pnpm
+export PNPM_HOME="/home/arch/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

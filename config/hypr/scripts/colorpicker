@@ -14,7 +14,7 @@ main() {
 		# generate preview
 		convert -size 48x48 xc:"$color" ${image}
 		# notify about it
-		notify-send -h string:x-canonical-private-synchronous:sys-notify -i ${image} "$color" "已复制到剪贴板。"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -i ${image} "$color" "Copied to clipboard."
 	fi
 }
 

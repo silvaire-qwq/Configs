@@ -1,0 +1,93 @@
+@use "colors.scss" as *;
+
+.mediaPlayersContainer {
+  // margin: 6px;
+  margin-top: 10px;
+  // margin-bottom: 6px;
+  background-color: $inverse_surface_transparent;
+  border-radius: 20px;
+  min-height: 50px;
+  box-shadow: 8px 8px 2px 1px $surface_bright;
+  // margin: 10px;
+  .media-player {
+    // min-width: 180px;
+    color: $on_surface;
+    padding: 1rem;
+    margin-left: 0rem;
+
+    .media-font {
+      color: $on_surface;
+      font-size: 7rem;
+      font-weight: 900;
+      // margin-top: 15px;
+      // margin-right: 1rem;
+      // margin-left: 1rem;
+
+      .artist {
+        font-weight: 500;
+      }
+    }
+
+    .progress_container {
+      min-height: 10px;
+      // margin-left: 1rem;
+
+      .progress {
+        border-radius: 10px;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        // margin-left: 0.3rem;
+        margin-right: 0.3rem;
+        scale {
+          trough {
+            border-radius: 9999px;
+            min-height: 0.25em;
+            // min-height: 10px;
+
+            highlight,
+            progress {
+              background-color: $primary;
+              min-height: 0.25em;
+            }
+          }
+          slider {
+            background-color: $primary;
+            min-height: 0.25em;
+          }
+        }
+      }
+    }
+
+    .play-icon {
+      color: $on_surface;
+
+      // margin-right: 1rem;
+      // &:hover {
+      //   color: $on_primary_container;
+      // }
+      .control-bg {
+        padding: 0.8rem;
+        border-radius: 100px;
+        background: $primary;
+
+        &:hover {
+          background: $primary_container;
+        }
+      }
+    }
+
+    .next-icon {
+      color: $on_surface;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
+
+    .cover {
+      border-radius: 10px;
+      min-height: 80px;
+      min-width: 80px;
+      // margin-right: 0.3rem;
+      // margin-right: 0.3rem;
+    }
+  }
+}

@@ -1,0 +1,236 @@
+@use "sass:color";
+@use "colors.scss" as *;
+
+.qs-container {
+  min-width: 420px;
+  // min-height: 650px;
+  background: $surface_transparent;
+  border-radius: 30px;
+  padding: 5px;
+  box-shadow: -8px 8px 2px 1px $surface_bright;
+
+  button {
+    outline-color: $on_surface;
+    // color: $on_surface;
+    padding: 0.625em;
+  }
+
+  .arrow-button {
+    // border-radius: 30px;
+    min-height: 3em;
+    // min-width: 38px;
+    // min-height: 38px;
+    background-color: $inverse_surface_transparent;
+    color: $on_surface;
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    box-shadow: 8px 8px 2px 1px $surface_bright;
+
+    > * {
+      padding: 0 4px;
+
+      .title {
+        font-size: 0.865em;
+        // margin-top: 0.3rem;
+        margin-left: 0.5rem;
+      }
+      .subtitle {
+        margin-left: 0.5rem;
+        font-weight: normal;
+        font-size: 0.775em;
+      }
+
+      &:first-child {
+        padding: 10px;
+      }
+    }
+
+    &.active {
+      background-color: $primary;
+      color: $on_primary;
+      .next-page {
+        border-radius: 0;
+        // background: $tertiary;
+        border-left: 1px solid $surface;
+      }
+    }
+
+    .next-page {
+      background: transparent;
+      padding-left: 8px;
+    }
+  }
+
+  flowbox flowboxchild {
+    padding: 0;
+    outline-color: $on_surface;
+
+    &:selected {
+      background-color: transparent;
+    }
+  }
+
+  separator {
+    margin: 0;
+    background-color: $inverse_surface_transparent;
+    color: $inverse_surface_transparent;
+    // margin: 0.7rem 0;
+    // margin-top: 0.2rem;
+  }
+
+  .header {
+    label {
+      font-size: 1.2rem;
+      color: $on_surface;
+    }
+
+    button {
+      padding: 0.5rem;
+      border-radius: 9999px;
+      // min-height: 26px;
+      min-height: 1rem;
+      min-width: 1.5rem;
+      color: $on_surface;
+      background-color: $inverse_surface_transparent;
+
+      label {
+        font-size: 0.95rem;
+      }
+
+      &:hover {
+        background-color: $inverse_surface_transparent_variant;
+      }
+    }
+
+    .powermenu {
+      color: $on_surface;
+
+      &:hover {
+        color: $red;
+        background-color: $inverse_surface_transparent;
+      }
+    }
+  }
+
+  .qs-box {
+    image {
+      padding: 0.5rem;
+      border-radius: 10px;
+      // background-color: $inverse_surface_transparent;
+    }
+    .volume-box {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .qs-button {
+    border-radius: 9999px;
+    min-height: 3.8em;
+    background-color: $inverse_surface_transparent;
+    color: $on_surface;
+    outline-color: $on_surface;
+    padding: 0 5px;
+    box-shadow: 8px 8px 2px 1px $surface_bright;
+
+    button {
+      // padding: 1rem 0;
+      background-color: transparent;
+      color: $on_surface;
+      // outline-color: $on_surface;
+      &:checked {
+        color: $on_primary_container;
+        border-radius: 10px;
+        background-color: $primary_container;
+      }
+    }
+    label {
+      font-size: 0.865em;
+      // margin-top: 0.3rem;
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      background-color: $inverse_surface_transparent_variant;
+    }
+
+    > * {
+      padding: 0.5rem;
+    }
+
+    .status {
+      font-weight: 400;
+    }
+
+    &.active {
+      background-color: $primary;
+      color: $on_primary;
+    }
+  }
+
+  .qs-page {
+    margin: 10px;
+    color: $on_surface;
+
+    .button {
+      padding: 0.4rem 0.8rem;
+      background-color: $inverse_surface_transparent;
+      border-radius: 20px;
+      box-shadow: 8px 8px 2px 1px $surface_bright;
+      // border-radius: 30px;
+      min-height: 30px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: $on_surface;
+
+      .bluetooth__percentage {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        background-color: $inverse_surface_transparent_variant;
+      }
+
+      &:active {
+        > * {
+          transform: none;
+        }
+
+        image {
+          transform: scale(0.85);
+        }
+      }
+
+      &.active {
+        background-color: $primary;
+        color: $on_primary;
+      }
+
+      image {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .wifi-page {
+    margin: 0;
+
+    .header {
+      margin: 10px;
+      margin-bottom: 0;
+      color: $on_surface;
+    }
+
+    separator {
+      margin: 10px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    scrolledwindow viewport {
+      padding: 10px;
+      padding-top: 0;
+    }
+  }
+}

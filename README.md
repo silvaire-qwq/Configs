@@ -7,7 +7,7 @@
 
 | ITEMS  | VALUES                               |
 | ------ | ------------------------------------ |
-| Kernel | 6.12.32-x64v3-xanmod1                          |
+| Kernel | 6.17.10-x64v3-xanmod1                          |
 | System | Arch Linux |
 | CPU    | AMD Ryzen 7 3800X 8-Core Processor                            |
 | GPU    | Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] (rev e7) |

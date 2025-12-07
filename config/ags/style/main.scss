@@ -1,0 +1,126 @@
+@use "colors.scss" as *;
+@use "./common.scss";
+@use "./Bar.scss";
+@use "./notification.scss";
+@use "./osd.scss";
+@use "./powermenu.scss";
+@use "./dashboard.scss";
+@use "./quicksettings.scss";
+@use "./wallpaperpicker.scss";
+@use "./applauncher.scss";
+@use "./mediaPlayer.scss";
+@use "roundedcorners.scss";
+@mixin rounded-full {
+  border-radius: 9999px;
+}
+* {
+  font-family: Noto Sans;
+}
+
+scale {
+  * {
+    @include rounded-full;
+  }
+
+  $width: 0.25em;
+  trough {
+    min-height: $width;
+    min-width: $width;
+    background-color: $inverse_surface_transparent;
+
+    highlight,
+    progress {
+      background-color: $primary;
+      min-height: $width;
+      min-width: $width;
+    }
+  }
+
+  slider {
+    background-color: $on_surface;
+    min-height: $width;
+    min-width: $width;
+    margin: -0.5em;
+  }
+}
+
+menubutton {
+  padding: 0;
+
+  button {
+    padding: unset;
+    margin: unset;
+    border-radius: 2px;
+
+    // &:hover {
+    //   background-color: $inverse_surface_transparent;
+    // }
+  }
+}
+
+popover arrow {
+  background: transparent;
+}
+
+popover.background.menu {
+  /* 整体弹出窗口样式 */
+  min-width: 120px;
+  /* 设置最小宽度 */
+  margin-top: 10px;
+}
+
+popover.background.menu contents {
+  background-color: $surface_transparent;
+  /* 使用主题背景色 */
+  color: $on_surface;
+  padding: 6px;
+  min-width: 120px;
+  /* 设置最小宽度 */
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+// switch {
+//   /* 开关背景的尺寸 */
+//   min-width: 30px;
+//   // min-height: 30px;
+//   background-color: $surface;
+//   border-radius: 15px;
+//   padding: 2px;
+//   transition: all 0.3s ease;
+//   &.active {
+//     background: $primary;
+//     color: $primary;
+//   }
+// }
+// switch slider {
+//   /* 滑块的样式 */
+//   background: $on_surface;
+//   color: $on_surface;
+//   border-radius: 50%;
+//   // min-width: 26px;
+//   // min-height: 26px;
+//   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+// }
+//
+// switch:hover slider {
+//   background-color: $primary;
+// }
+.labelSmallBold {
+  color: $on_surface;
+  font-size: 14px;
+  font-weight: bold;
+}
+.labelSmallerBold {
+  color: $on_surface;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.labelSmall {
+  color: $on_surface;
+  font-size: 14px;
+}
+.labelSmaller {
+  color: $on_surface;
+  font-size: 12px;
+}

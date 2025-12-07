@@ -1,0 +1,200 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:list";
+@use "colors.scss" as *;
+
+$window-border-radius: 6px 6px 6px 6px;
+// .notification-popup {
+//   // padding: 8px;
+//   box-shadow: -8px 8px 2px 1px $surface_bright;
+// }
+.notifications-container {
+  border-radius: 30px 0 0 30px;
+  min-width: 400px;
+  min-height: 400px;
+  // padding: 10px 10px 0;
+  color: $on_surface;
+  padding: 12px;
+  background-color: $surface_transparent;
+  box-shadow: 8px 8px 2px 1px $surface_bright;
+
+  separator {
+    margin: 2px;
+    // background-color: $inverse_surface_transparent;
+    // color: $inverse_surface_transparent;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .scroll {
+    min-height: 300px;
+  }
+  .window-header {
+    margin-top: 6px;
+    // margin-bottom: 2px;
+    // color: $on_surface;
+    padding-bottom: 0;
+
+    .clear {
+      // padding: 0.1rem;
+      // padding-top: 0.2rem;
+      // padding-bottom: 0.3rem;
+      // padding: 1px;
+      padding-right: 0.8rem;
+      border-radius: 12px;
+      min-width: 10px;
+      min-height: 30px;
+      color: $on_surface;
+      // background: $inverse_surface_transparent;
+      &:hover {
+        color: $primary;
+        label {
+          color: $primary;
+        }
+      }
+      label {
+        font-size: 1.1rem;
+        color: $on_surface;
+      }
+    }
+
+    label {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: $on_surface;
+    }
+  }
+
+  scrolledwindow viewport > box {
+    .not-found label {
+      font-size: 1rem;
+      color: $on_surface;
+    }
+
+    margin: 10px;
+    margin-top: 1px;
+  }
+
+  .notification-container {
+    min-width: 1px;
+    border-radius: 20px;
+    margin: 10px;
+    // padding: 10px;
+    background: $inverse_surface_transparent;
+    box-shadow: none;
+    box-shadow: -8px 8px 2px 1px $surface_bright;
+  }
+}
+
+.notification-container {
+  padding: 8px 16px 14px 20px;
+  min-width: 380px;
+  border-radius: 20px;
+  margin: 10px;
+  // margin-bottom: 10px;
+  background: $surface_transparent;
+  box-shadow: -8px 8px 2px 1px $surface_bright;
+
+  &.critical {
+    box-shadow: 0 0 0 0.1rem $red;
+  }
+
+  .header {
+    font-size: 12px;
+    color: $on_surface;
+
+    .time {
+      margin-right: 0.5rem;
+      font-size: 12px;
+      color: $on_surface;
+    }
+
+    .app-icon {
+      margin-right: 0.5rem;
+    }
+
+    .app-name {
+      color: $on_surface;
+      // margin-left: 0.1rem;
+    }
+
+    button {
+      padding: 0 0.3rem;
+      background-color: $inverse_surface_transparent;
+      color: $on_surface;
+      border-radius: 100px;
+
+      &:hover {
+        color: $on_primary_fixed;
+        background-color: $primary_fixed;
+      }
+    }
+  }
+
+  separator {
+    margin: 0.2rem 0;
+    background-color: $inverse_surface_transparent;
+    color: $inverse_surface_transparent;
+  }
+
+  .content {
+    margin-bottom: 0.3rem;
+
+    .summary {
+      // margin-left: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: $on_surface;
+      font-weight: 700;
+    }
+
+    .body {
+      font-size: 1rem;
+      // margin-left: 0.5rem;
+      color: $on_surface;
+      font-weight: 400;
+    }
+
+    .image image {
+      // border-radius: 100px;
+      border-radius: 10px;
+      min-width: 70px;
+      min-height: 70px;
+      // margin-right: 14px;
+      margin-top: 8px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .actions {
+    // margin-top: 0.5rem;
+    button {
+      background: none;
+      transition: color 0.1s ease-in-out;
+      color: $primary;
+      border-radius: 100px;
+
+      &:hover {
+        color: $on_primary_container;
+        transition: color 0.1s ease-in-out;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.slide-in {
+  animation: {
+    name: notification-slide-in;
+    duration: 0.3s;
+    timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}

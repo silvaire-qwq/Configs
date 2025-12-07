@@ -1,0 +1,186 @@
+@use "sass:string";
+@use "sass:color";
+@use "colors.scss" as *;
+.dash-main {
+  background-color: $surface_transparent;
+  padding: 20px;
+  border-radius: 0 30px 30px 0;
+  border-left: 1px solid $inverse_surface_transparent;
+  box-shadow: 8px 8px 2px 1px $surface_bright;
+}
+.time-label {
+  color: $on_surface;
+  font-size: 6.5rem;
+  font-weight: bold;
+}
+.month-label {
+  color: $on_surface;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.uptime-label {
+  color: $on_surface;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.datemenu-container {
+  min-width: 300px;
+
+  .time {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1rem;
+    // margin-bottom: 1rem;
+  }
+
+  calendar {
+    // margin: 10px;
+    background-color: $inverse_surface_transparent;
+    box-shadow: -8px 8px 2px 1px $surface_bright;
+    // color: $on_surface;
+    min-width: 280px;
+    min-height: 280px;
+    // min-height: 380px;
+    padding: 20px;
+    border-radius: 20px;
+    // padding-top: 20px;
+    border: unset;
+
+    header {
+      // padding-bottom: 10px;
+      color: $on_surface;
+      border: unset;
+    }
+
+    grid > * {
+      min-width: 20px;
+      min-height: 20px;
+      border-radius: 10px;
+      margin: 0.1rem;
+      color: $on_surface;
+      outline-color: $outline;
+      // outline: unset;
+    }
+
+    .day-number {
+      // min-width: 30px;
+      // min-height: 30px;
+      color: $on_surface;
+
+      &:selected {
+        color: $on_primary;
+        background-color: $primary;
+      }
+    }
+
+    .today {
+      border-radius: 10px;
+      margin: 0.1rem;
+      min-width: 30px;
+      min-height: 30px;
+      color: $primary;
+    }
+
+    .other-month {
+      color: $outline;
+    }
+  }
+}
+.weather {
+  background-color: $inverse_surface_transparent;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: -8px 8px 2px 1px $surface_bright;
+  // min-width: 380px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  margin-top: 15px;
+  .temperature-main {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $on_surface;
+  }
+
+  .temperature-range {
+    font-size: 1.1em;
+    color: $on_surface;
+    opacity: 0.75;
+  }
+
+  .timestamp {
+    font-weight: bold;
+    color: $on_surface;
+  }
+
+  .main-icon {
+    &.day {
+      background-color: $primary;
+      color: $on_primary;
+    }
+
+    &.night {
+      background-color: $secondary;
+      color: $on_secondary;
+    }
+
+    margin-right: 0.5rem;
+    padding: 10px;
+    border-radius: 20px;
+  }
+}
+.systeminfo {
+  background-color: $inverse_surface_transparent;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 5px;
+  box-shadow: -8px 8px 2px 1px $surface_bright;
+  image {
+    color: $on_surface;
+    padding: 4px;
+    border-radius: 5px;
+    // background-color: $primary;
+  }
+  levelbar {
+    // 基础容器样式
+    min-height: 8px;
+    min-width: 200px;
+    border-radius: 5px;
+    background: transparent;
+    // border: 1px solid rgba(255, 255, 255, 0.2);
+
+    // 进度条轨道
+    trough {
+      min-height: 8px;
+      border-radius: 5px;
+      background: $inverse_surface_transparent_overlay;
+      // box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    // 进度条填充部分
+    block {
+      min-height: 8px;
+      border-radius: 5px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      background: $inverse_surface_transparent;
+    }
+
+    // 填充状态样式
+    block.filled {
+      background: $primary;
+    }
+
+    // 高使用率警告色
+    block.high {
+      background: $yellow;
+    }
+
+    // 危险状态
+    block.critical {
+      background: $red;
+    }
+  }
+}

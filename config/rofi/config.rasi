@@ -1,4 +1,4 @@
-configuration{
+configuration {
     modi: "drun";
     show-icons: true;
     terminal: "wezterm";
@@ -9,4 +9,4 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "catppuccin-mocha"
+@theme "everforest"
