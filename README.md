@@ -47,3 +47,4 @@ How can I use this dotfiles manager?
 | wezterm       |              |             |
 | starship.toml |              |             |
 | nushell       |              |             |
+| niri          |              |             |

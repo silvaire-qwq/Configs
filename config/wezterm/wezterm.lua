@@ -2,12 +2,12 @@ local wezterm = require("wezterm")
 return {
 	font_size = 13,
 	font = wezterm.font_with_fallback({
-		{ family = "ComicShannsMono Nerd Font" }, --, weight = "Medium" },
-		-- { family = "FiraCode Nerd Font" }, --, weight = "Medium" },
+		-- { family = "ComicShannsMono Nerd Font" }, --, weight = "Medium" },
+		{ family = "FiraCode Nerd Font" }, --, weight = "Medium" },
 		-- { family = "CaskaydiaCove Nerd Font" },
+		{ family = "Maple Mono Featured NF CN" }, --, weight = "Medium" },
 		{ family = "Apple Color Emoji" },
 		-- { family = "MiSans VF", weight = "Medium" },
-		{ family = "Maple Mono Featured NF CN" }, --, weight = "Medium" },
 	}),
 	-- font_rules = {
 	-- {
@@ -25,7 +25,7 @@ return {
 		top = 30,
 		bottom = 30,
 	},
-	line_height = 1.35,
+	line_height = 1.3,
 	cell_width = 0.9,
 	adjust_window_size_when_changing_font_size = false,
 	enable_wayland = true,
