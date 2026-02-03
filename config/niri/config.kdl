@@ -46,6 +46,8 @@ input {
 
     mod-key "Super"
     mod-key-nested "Alt"
+    warp-mouse-to-focus
+    focus-follows-mouse //max-scroll-amount="50%"
 }
 
 // ============================================================================
@@ -55,16 +57,18 @@ input {
 layout {
     gaps 15
     background-color "transparent"
-    center-focused-column "always"
+    center-focused-column "never" //"always"
     
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.83333
+        proportion 1.0
     }
     
     default-column-width { 
-        proportion 0.5
+        proportion 0.6
     }
     
     border {
@@ -83,10 +87,10 @@ layout {
     
     shadow {
        on
-        softness 30
-        spread 5
+        softness 50
+        spread 10
         offset x=0 y=5
-        color "#0007"
+        color "#1e1e2e"
     }
     
     struts { }
@@ -94,7 +98,7 @@ layout {
 
 gestures {
     hot-corners {
-        // off
+        off
     }
 }
 
@@ -105,7 +109,7 @@ cursor {
 }
 
 overview {
-    zoom 0.75
+    zoom 1
 
     // Uncomment to give the overview a solid backdrop between workspaces.
     //backdrop-color "#777777"
@@ -123,17 +127,9 @@ overview {
 window-rule {
     geometry-corner-radius 20
     clip-to-geometry true
+    draw-border-with-background false 
+    opacity 0.7
 }
-
-window-rule { 
-    match is-active=false
-    opacity 0.8
-}
-
-// window-rule { 
-    // match is-active=true
-    // opacity 0.8
-// }
 
 // ============================================================================
 // ANIMATIONS
@@ -248,10 +244,10 @@ binds {
     
     // ii Window Switcher (Alt+Tab)
     Mod+Tab { spawn "qs" "-c" "ii" "ipc" "call" "altSwitcher" "next"; }
-    Alt+Shift+Tab { spawn "qs" "-c" "ii" "ipc" "call" "altSwitcher" "previous"; }
+    // Alt+Shift+Tab { spawn "qs" "-c" "ii" "ipc" "call" "altSwitcher" "previous"; }
     
     // ii Overlay
-    Super+G { spawn "qs" "-c" "ii" "ipc" "call" "overlay" "toggle"; }
+    // Super+G { spawn "qs" "-c" "ii" "ipc" "call" "overlay" "toggle"; }
 
     // ii Overview (daemon)
     Mod+Space repeat=false { spawn "qs" "-c" "ii" "ipc" "call" "overview" "toggle"; }
@@ -260,7 +256,7 @@ binds {
     Mod+V { spawn "qs" "-c" "ii" "ipc" "call" "clipboard" "toggle"; }
     
     // ii Lock screen
-    Mod+Alt+L allow-when-locked=true { spawn "qs" "-c" "ii" "ipc" "call" "lock" "activate"; }
+    Mod+L allow-when-locked=true { spawn "qs" "-c" "ii" "ipc" "call" "lock" "activate"; }
     
     // ii Region tools
     Mod+Shift+S { spawn "qs" "-c" "ii" "ipc" "call" "region" "screenshot"; }
@@ -296,20 +292,12 @@ binds {
     Mod+Right { focus-column-right; }
     Mod+Up { focus-window-up; }
     Mod+Down { focus-window-down; }
-    Mod+H { focus-column-left; }
-    Mod+J { focus-window-down; }
-    Mod+K { focus-window-up; }
-    Mod+L { focus-column-right; }
     
     // Move windows
     Mod+Shift+Left { move-column-left; }
     Mod+Shift+Right { move-column-right; }
     Mod+Shift+Up { move-window-up; }
     Mod+Shift+Down { move-window-down; }
-    Mod+Shift+H { move-column-left; }
-    Mod+Shift+J { move-window-down; }
-    Mod+Shift+K { move-window-up; }
-    Mod+Shift+L { move-column-right; }
     
     // Workspaces
     Mod+1 { focus-workspace 1; }
@@ -329,9 +317,7 @@ binds {
     Mod+Shift+5 { move-column-to-workspace 5; }
     
     // Screenshots (native)
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print { spawn "qs" "-c" "ii" "ipc" "call" "region" "screenshot"; }
     
     // Media keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "-c" "ii" "ipc" "call" "audio" "volumeUp"; }
@@ -344,8 +330,8 @@ binds {
     Mod+Alt+N { spawn "qs" "-c" "ii" "ipc" "call" "mpris" "next"; }
     Mod+Alt+P { spawn "qs" "-c" "ii" "ipc" "call" "mpris" "previous"; }
     Mod+R { switch-preset-column-width; }
-    Mod+Ctrl+R { switch-preset-window-height; }
-    Mod+Shift+R { reset-window-height; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 

@@ -48,3 +48,4 @@ How can I use this dotfiles manager?
 | starship.toml |              |             |
 | nushell       |              |             |
 | niri          |              |             |
+| quickshell    |              |             |

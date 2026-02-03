@@ -2314,6 +2314,7 @@ re2
 readline
 recode
 refind
+resvg
 reuse
 rhash
 rime-bopomofo
@@ -2569,7 +2570,6 @@ umu-launcher
 unibilium
 unicode-cldr
 unicode-cldr-annotations
-unixodbc
 unzip
 update-grub
 upower
@@ -2671,9 +2671,6 @@ whitesur-icon-theme
 whois
 wildmidi
 wimlib
-wine-mono
-wine-wow64
-winetricks
 wireless_tools
 wireplumber
 wl-clipboard
